@@ -6,7 +6,7 @@ const CANDIDATE_ID = 'Candidate_ID'
 
 function getCandidateById(id) {
   return Candidate
-    .query(function(qb) {
+    .query((qb) => {
       qb.whereIn('id', id)
     })
     .fetchAll()
@@ -20,7 +20,7 @@ function getCandidateById(id) {
 
 function getCandidatesForContests(contestIds) {
   return Candidate
-    .query(function(qb) {
+    .query((qb) => {
       qb.whereIn('Contest_ID', contestIds)
     })
     .orderBy(CANDIDATE_ID, 'ASC')
@@ -55,7 +55,7 @@ function getCandidateMetadata(candidateId) {
 
 function getCandidatesMetadata(candidateIds) {
   return CandidateMetadata
-    .query(function(qb) {
+    .query((qb) => {
       qb.whereIn(CANDIDATE_ID, candidateIds)
     })
     .orderBy(CANDIDATE_ID, 'ASC')

@@ -8,13 +8,13 @@ const {
   setCandidateMetadata,
 } = require('../services/candidate')
 
-router.get('/id/:id', function (req, res) {
+router.get('/id/:id', (req, res) => {
   getCandidateById(req.params.id).then(candidate => {
     return res.redirect(`/admin/candidate/${candidate.Candidate_ID}`)
   })
 })
 
-router.get('/:candidateId', function (req, res) {
+router.get('/:candidateId', (req, res) => {
   const candidateId = req.params.candidateId
   console.log('candidateId', candidateId)
 
@@ -43,7 +43,7 @@ router.get('/:candidateId', function (req, res) {
   })
 })
 
-router.put('/:candidateId', function (req, res) {
+router.put('/:candidateId', (req, res) => {
   const candidateId = req.params.candidateId
 
   const candidatePr = setCandidateMetadata(candidateId, req.body)

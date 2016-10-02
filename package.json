@@ -9,7 +9,7 @@
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build; fi",
     "start": "NODE_ENV=development node --harmony-destructuring server.js & node webpack_dev_server.js",
     "start:production": "NODE_ENV=production node server.js",
-    "lint": "eslint --ext .js --ext .jsx src"
+    "lint": "eslint --ext .js --ext .jsx src server"
   },
   "license": "Apache-2.0",
   "repository": {
@@ -64,6 +64,7 @@
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-react": "6.3.0",
     "nsp": "^2.3.3",
+    "polyfiller": "0.0.32",
     "webpack-notifier": "^1.4.1"
   },
   "engines": {

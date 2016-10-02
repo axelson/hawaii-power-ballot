@@ -4,7 +4,7 @@ var router = express.Router()
 const {scriptUrl} = require('../services/server_helpers')
 const {getBallot} = require('../services/ballot')
 
-router.get('/:precinct', function (req, res) {
+router.get('/:precinct', (req, res) => {
   const precinct = req.params.precinct
   console.log('precinct', precinct)
   const ballotPr = getBallot(precinct)
