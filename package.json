@@ -12,6 +12,10 @@
     "lint": "eslint --ext .js --ext .jsx src"
   },
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axelson/hawaii-power-ballot.git"
+  },
   "dependencies": {
     "autoprefixer": "^6.4.1",
     "babel-core": "^6.0.20",
