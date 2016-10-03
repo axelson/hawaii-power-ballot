@@ -9,6 +9,7 @@ import BallotPage from 'src/components/BallotPage'
 import Home from 'src/components/home/Home'
 import StatewideBallotPage from 'src/components/StatewideBallotPage'
 import AdminCandidatePage from 'src/components/AdminCandidatePage'
+import AdminHomePage from 'src/components/admin/AdminHomePage'
 
 export default class App extends Component {
   state = {
@@ -19,6 +20,11 @@ export default class App extends Component {
   _updateMatchedAddress = (matchedAddress) => this.setState({matchedAddress})
   _updateMatchedCoordinates = (matchedCoordinates) => this.setState({matchedCoordinates})
 
+  _renderAdminHomePage = () => {
+    return (
+      <AdminHomePage />
+    )
+  }
   _renderHomePage = () => {
     return (
       <Home
@@ -57,6 +63,7 @@ export default class App extends Component {
           <Match exactly pattern="/" render={this._renderHomePage} />
           <Match pattern="/statewide" component={StatewideBallotPage} />
           <Match pattern="/ballot/:precinct" render={this._renderBallotPage} />
+          <Match exactly pattern="/admin" render={this._renderAdminHomePage} />
           <Match pattern="/admin/candidate" component={AdminCandidatePage} />
           <Miss component={NoMatch} />
           <Footer />

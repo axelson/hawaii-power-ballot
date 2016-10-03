@@ -8,9 +8,9 @@ var morgan = require('morgan')
 var flash    = require('connect-flash')
 
 const {scriptUrl} = require('./server/services/server_helpers')
-var ballotsRoute = require('./server/routes/ballots')
-var candidatesRoute = require('./server/routes/admin_candidates')
-var apiRoute = require('./server/routes/api')
+const ballotsRoute = require('./server/routes/ballots')
+const apiRoute = require('./server/routes/api')
+const adminRoutes = require('./server/routes/admin')
 
 var app = express()
 require('./server/config/passport')(passport) // pass passport for configuration
@@ -49,7 +49,7 @@ app.use('/assets/', express.static(path.join(__dirname, '/src/assets')))
 
 app.use('/api', apiRoute)
 app.use('/ballot', ballotsRoute)
-app.use('/admin/candidate', candidatesRoute)
+app.use('/admin', adminRoutes)
 require('./server/routes.js')(app, passport)
 
 app.get('*', (req, res) => {

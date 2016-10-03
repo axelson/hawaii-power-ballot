@@ -8,13 +8,22 @@ const {
   setCandidateMetadata,
 } = require('../services/candidate')
 
-router.get('/id/:id', (req, res) => {
+router.get('/', (req, res) => {
+  const initialState = {}
+  res.render('index.jade', {
+    initialState,
+    scriptUrl: scriptUrl(),
+    user: req.user,
+  })
+})
+
+router.get('/candidate/id/:id', (req, res) => {
   getCandidateById(req.params.id).then(candidate => {
     return res.redirect(`/admin/candidate/${candidate.Candidate_ID}`)
   })
 })
 
-router.get('/:candidateId', (req, res) => {
+router.get('/candidate/:candidateId', (req, res) => {
   const candidateId = req.params.candidateId
   console.log('candidateId', candidateId)
 
