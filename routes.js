@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   routes: {
@@ -18,4 +18,4 @@ module.exports = {
       page: path.join('.', 'pages', 'ExampleBallot.jsx'),
     },
   },
-};
+}

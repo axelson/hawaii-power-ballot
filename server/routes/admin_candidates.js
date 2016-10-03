@@ -34,11 +34,13 @@ router.get('/:candidateId', (req, res) => {
   result.then(data => {
     const initialState = {
       candidate: data.candidate,
+      user: req.user,
     }
 
     res.render('index.jade', {
       initialState,
       scriptUrl: scriptUrl(),
+      user: req.user,
     })
   })
 })
@@ -62,11 +64,13 @@ router.put('/:candidateId', (req, res) => {
   result.then(data => {
     const initialState = {
       candidate: data.candidate,
+      user: req.user,
     }
 
     res.render('index.jade', {
       initialState,
       scriptUrl: scriptUrl(),
+      user: req.user,
     })
   })
 })
