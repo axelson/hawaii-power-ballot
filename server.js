@@ -33,15 +33,8 @@ app.use(session({
   secret: '8OQzLos3l1fODmCpO00uWxKpiQF2VCP8ok5fRZhc',
   name: 'pballot',
   store: new pgSession({
-    conString : {
-      host     : '127.0.0.1',
-      user     : '',
-      password : '',
-      database : 'power_ballot_development',
-      charset  : 'utf8',
-    },
+    conString: require('./server/config/database'),
     // pg : pg,                                  // Use global pg-module
-    // conString : process.env.FOO_DATABASE_URL, // Connect using something else than default DATABASE_URL env variable
     tableName : 'session',               // Use another table-name than the default "session" one
   }),
   proxy: true,
