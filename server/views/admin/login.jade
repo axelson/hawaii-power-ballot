@@ -20,7 +20,7 @@ html
           .alert.alert-danger
             = message
         // LOGIN FORM
-        form(action='/login', method='post')
+        form(action='/admin/login', method='post')
           .form-group
             label Email
             input.form-control(type='text', name='email')
@@ -31,7 +31,7 @@ html
         hr
         p
           | Need an account? 
-          a(href='/signup') Signup
+          a(href='/admin/signup') Signup
         p
           | Or go 
           a(href='/') home

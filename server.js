@@ -50,7 +50,6 @@ app.use('/assets/', express.static(path.join(__dirname, '/src/assets')))
 app.use('/api', apiRoute)
 app.use('/ballot', ballotsRoute)
 app.use('/admin', adminRoutes)
-require('./server/routes.js')(app, passport)
 
 app.get('*', (req, res) => {
   res.render('index.jade', {
