@@ -39,7 +39,8 @@ router.get('/signup', (req, res) => {
   res.render('admin/signup.jade', { message: req.flash('signupMessage') })
 })
 
-router.post('/signup', isSuperAdmin, passport.authenticate('local-signup', {
+// router.post('/signup', isSuperAdmin, passport.authenticate('local-signup', {
+router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/admin', // redirect to the secure profile section
   failureRedirect: '/signup', // redirect back to the signup page if there is an error
   failureFlash: true, // allow flash messages
