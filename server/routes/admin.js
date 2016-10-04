@@ -42,7 +42,7 @@ router.get('/signup', (req, res) => {
 // router.post('/signup', isSuperAdmin, passport.authenticate('local-signup', {
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/admin', // redirect to the secure profile section
-  failureRedirect: '/signup', // redirect back to the signup page if there is an error
+  failureRedirect: '/admin/signup', // redirect back to the signup page if there is an error
   failureFlash: true, // allow flash messages
 }))
 
