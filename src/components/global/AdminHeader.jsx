@@ -15,7 +15,7 @@ export default class AdminHeader extends React.Component {
       <div className={styles['container']}>
         <div className={classnames('row', styles['row'])}>
           <div className={styles['hawaii-text']}>STATE OF HAWAII</div>
-          <Link to="/">
+          <Link to="/admin">
             <SvgIcon icon={Logo} className={styles['logo']} width={300} height={46} />
           </Link>
         </div>
