@@ -10,7 +10,8 @@ export default class AdminHome extends React.Component {
         {candidates.map((candidate) => {
           return (
             <div key={candidate.Candidate_ID}>
-              {candidate.Candidate_Name}
+              {candidate.Candidate_Name}&nbsp;
+              (<a href={`/admin/candidate/${candidate.Candidate_ID}`}>Edit</a>)
             </div>
           )
         })}

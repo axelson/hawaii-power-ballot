@@ -41,9 +41,16 @@ export default class AdminHomePage extends React.Component {
     const { ballot } = this.state
     if (!this._hasData()) return this._renderLoading()
 
+    const candidates = []
+    ballot.contests.map((contest) => {
+      contest.candidates.map((candidate) => {
+        candidates.push(candidate)
+      })
+    })
+
     return (
       <div>
-        <AdminHome candidates={ballot.contests[0].candidates} />
+        <AdminHome candidates={candidates} />
       </div>
     )
   }
