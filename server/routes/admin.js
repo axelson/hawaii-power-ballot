@@ -20,7 +20,11 @@ router.get('/', isLoggedIn, (req, res) => {
 
 // Login
 router.get('/login', (req, res) => {
-  res.render('admin/login.jade', { message: req.flash('loginMessage') })
+  if (req.isAuthenticated()) {
+    res.redirect('/admin')
+  } else {
+    res.render('admin/login.jade', { message: req.flash('loginMessage') })
+  }
 })
 
 router.post('/login', passport.authenticate('local-login', {
