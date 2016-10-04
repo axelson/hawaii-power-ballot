@@ -1,5 +1,8 @@
 // Note to run this you may need to run: npm install polyfiller --save
 var fs = require('fs')
+
+// We only install this when we need to generate the polyfills, partially because of dependency issues because it tries to pull in grunt
+// eslint-disable-next-line import/no-unresolved
 var Polyfiller = require('polyfiller')
 
 // Polyfiller setup
