@@ -34,7 +34,8 @@ router.post('/login', passport.authenticate('local-login', {
 }))
 
 // Signup
-router.get('/signup', isSuperAdmin, (req, res) => {
+// router.get('/signup', isSuperAdmin, (req, res) => {
+router.get('/signup', (req, res) => {
   res.render('admin/signup.jade', { message: req.flash('signupMessage') })
 })
 
