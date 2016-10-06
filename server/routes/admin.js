@@ -88,7 +88,7 @@ router.get('/candidate/:candidateId', isLoggedIn, (req, res) => {
   })
 })
 
-router.put('/:candidateId', isLoggedIn, (req, res) => {
+router.put('/candidate/:candidateId', isLoggedIn, (req, res) => {
   const candidateId = req.params.candidateId
 
   const candidatePr = setCandidateMetadata(candidateId, req.body)
