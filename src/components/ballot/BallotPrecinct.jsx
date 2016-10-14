@@ -27,6 +27,8 @@ export default class BallotPrecinct extends React.Component {
         <div className={styles['section']}>
           <div className={styles['header']}>Your Polling Place</div>
           <BallotPollingPlace pollingPlace={pollingPlace} />
+          <br />
+          <a href={`https://olvr.hawaii.gov/2016GeneralElectionBallots/English/${pollingPlace.POLLINGID.replace('-', '')}EN.pdf`} target='_blank'>View Official Ballot</a>
         </div>
       </div>
     )
