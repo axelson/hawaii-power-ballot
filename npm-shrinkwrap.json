@@ -2072,25 +2072,50 @@
       "from": "escope@>=3.6.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/escope/-/escope-3.6.0.tgz"
     },
+    "eslint": {
+      "version": "3.7.0",
+      "from": "eslint@3.7.0",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.7.0.tgz"
+    },
     "eslint-config-standard-jsx": {
       "version": "3.0.1",
       "from": "eslint-config-standard-jsx@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/eslint-config-standard-jsx/-/eslint-config-standard-jsx-3.0.1.tgz"
+    },
+    "eslint-config-standard-react": {
+      "version": "4.2.0",
+      "from": "eslint-config-standard-react@4.2.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-standard-react/-/eslint-config-standard-react-4.2.0.tgz"
     },
     "eslint-import-resolver-node": {
       "version": "0.2.3",
       "from": "eslint-import-resolver-node@>=0.2.0 <0.3.0",
       "resolved": "https://registry.npmjs.org/eslint-import-resolver-node/-/eslint-import-resolver-node-0.2.3.tgz"
     },
+    "eslint-import-resolver-webpack": {
+      "version": "0.6.0",
+      "from": "eslint-import-resolver-webpack@latest",
+      "resolved": "https://registry.npmjs.org/eslint-import-resolver-webpack/-/eslint-import-resolver-webpack-0.6.0.tgz"
+    },
     "eslint-module-utils": {
       "version": "1.0.0",
       "from": "eslint-module-utils@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-1.0.0.tgz"
     },
+    "eslint-plugin-react": {
+      "version": "6.3.0",
+      "from": "eslint-plugin-react@6.3.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-6.3.0.tgz"
+    },
     "espower-location-detector": {
       "version": "0.1.2",
       "from": "espower-location-detector@>=0.1.1 <0.2.0",
       "resolved": "https://registry.npmjs.org/espower-location-detector/-/espower-location-detector-0.1.2.tgz"
+    },
+    "espree": {
+      "version": "3.3.2",
+      "from": "espree@>=3.3.1 <4.0.0",
+      "resolved": "https://registry.npmjs.org/espree/-/espree-3.3.2.tgz"
     },
     "esprima": {
       "version": "2.7.3",
@@ -6232,6 +6257,11 @@
           "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-3.1.2.tgz"
         }
       }
+    },
+    "webpack-notifier": {
+      "version": "1.4.1",
+      "from": "webpack-notifier@latest",
+      "resolved": "https://registry.npmjs.org/webpack-notifier/-/webpack-notifier-1.4.1.tgz"
     },
     "webpack-stats-plugin": {
       "version": "0.1.3",
