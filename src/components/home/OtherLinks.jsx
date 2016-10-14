@@ -44,6 +44,7 @@ export default function OtherLinks (props) {
         icon={ButtonPollOfficial}
         title='Find your polling place, Official'
         description='Using your name and birth date'
+        href='https://olvr.hawaii.gov/Default.aspx'
       />
       <LinkWithIcon
         icon={ButtonPollUnofficial}
