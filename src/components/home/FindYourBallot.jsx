@@ -16,7 +16,7 @@ export default class FindYourBallot extends React.Component {
             <input
               className={styles['input']}
               type='text'
-              placeholder="Type your address here to get YOUR Power Ballot"
+              placeholder="Type your address (street address, city, state, zip) here to get YOUR Power Ballot"
               onChange={onChange}
               onKeyPress={onKeyPress}
               value={value}
