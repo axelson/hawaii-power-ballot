@@ -8,10 +8,9 @@ router.get('/precincts/:precinct', (req, res) => {
 
   getBallot(precinct).then(data => {
     res.json({ballot: data})
-  },
-  failure => {
-    console.error('Unable to get candidates data')
-    console.error(failure)
+  }).catch(reason => {
+    console.error('Unable to get precinct data', reason)
+    console.error(reason.stack)
     return { ballot: {}, candidates: []}
   })
 })

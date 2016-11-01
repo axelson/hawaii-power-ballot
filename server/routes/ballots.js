@@ -6,7 +6,6 @@ const {getBallot} = require('../services/ballot')
 
 router.get('/:precinct', (req, res) => {
   const precinct = req.params.precinct
-  console.log('precinct', precinct)
   const ballotPr = getBallot(precinct)
 
   var result = ballotPr.then(data => {
@@ -15,10 +14,9 @@ router.get('/:precinct', (req, res) => {
     return {
       ballot: data,
     }
-  },
-  failure => {
-    console.error('Unable to get candidates data')
-    console.error(failure)
+  }).catch((reason) => {
+    console.error("Unable to get candidates data", reason)
+    console.error(reason.stack)
     return { ballot: {}, candidates: []}
   })
 

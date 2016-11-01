@@ -5,6 +5,17 @@ import BallotPollingPlace from './BallotPollingPlace.jsx'
 import styles from './ballot-precinct.scss'
 
 export default class BallotPrecinct extends React.Component {
+  _renderPollingPlace () {
+    const { pollingPlace } = this.props
+    return (
+      <div className={styles['section']}>
+        <div className={styles['header']}>Your Polling Place</div>
+        <BallotPollingPlace pollingPlace={pollingPlace} />
+        <br />
+        <a href={`https://olvr.hawaii.gov/2016GeneralElectionBallots/English/${pollingPlace.POLLINGID.replace('-', '')}EN.pdf`} target='_blank'>View Official Ballot</a>
+      </div>
+    )
+  }
 
   render () {
     const { address, pollingPlace, precinct } = this.props
@@ -24,12 +35,7 @@ export default class BallotPrecinct extends React.Component {
             <div>{precinct}</div>
           </div>
         </div>
-        <div className={styles['section']}>
-          <div className={styles['header']}>Your Polling Place</div>
-          <BallotPollingPlace pollingPlace={pollingPlace} />
-          <br />
-          <a href={`https://olvr.hawaii.gov/2016GeneralElectionBallots/English/${pollingPlace.POLLINGID.replace('-', '')}EN.pdf`} target='_blank'>View Official Ballot</a>
-        </div>
+        {pollingPlace ? this._renderPollingPlace() : null}
       </div>
     )
   }

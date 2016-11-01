@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react'
 
 export default class SvgIcon extends React.Component {
   render () {
-    const { containerClassName, icon, ...otherProps } = this.props
+    const { containerClassName, icon, wrappingElement, ...otherProps } = this.props
 
-    return (
-      <div className={containerClassName}>
-        <svg {...otherProps}>
-          <use xlinkHref={icon} />
-        </svg>
-      </div>
+    return React.createElement(
+      wrappingElement,
+      {className: containerClassName},
+      <svg {...otherProps}>
+        <use xlinkHref={icon} />
+      </svg>
     )
   }
 }
@@ -17,4 +17,8 @@ export default class SvgIcon extends React.Component {
 SvgIcon.propTypes = {
   containerClassName: PropTypes.string,
   icon: PropTypes.string.isRequired,
+  wrappingElement: PropTypes.string,
+}
+SvgIcon.defaultProps = {
+  wrappingElement: 'div',
 }
