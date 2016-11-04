@@ -35,6 +35,34 @@ export default class Amendment extends React.Component {
     }
   }
 
+  _renderAdditionalAmendmentSection () {
+    const { amendmentGroup } = this.props
+    switch (amendmentGroup.name) {
+    case "CON AMEND":
+      return (
+        <div className={styles['amendment-additional-info-section']}>
+          Additional Information:
+          <ul className={styles['additional-information-links']}>
+            <li><a href="http://www.lwv-hawaii.com/prosandcons-hon2.pdf">League of Women Voters of Hawaii Pros and Cons</a></li>
+          </ul>
+        </div>
+      )
+    case 'HONOLULU CHARTER AMEND':
+      return (
+        <div className={styles['amendment-additional-info-section']}>
+          Additional Information:
+          <ul className={styles['additional-information-links']}>
+            <li><a href="http://www.lwv-hawaii.com/pro-con-2016.htm" target="_blank">League of Women Voters of Hawaii Pros and Cons</a></li>
+            <li><a href="https://whatnataliethinks.wordpress.com/2016/10/14/charter-amendment-4-on-rail-whats-not-in-the-booklet/" target="_blank">Relating to amendment #4 (Natalie Iwasa)</a></li>
+            <li><a href="/assets/data/Honolulu_Charter_Testimony_6_Natalie_Iwasa.pdf" target="_blank">Relating to amendment #6 (Natalie Iwasa)</a></li>
+          </ul>
+        </div>
+      )
+    default:
+      return null
+    }
+  }
+
   _renderAmendment = (amendment, i) => {
     const { amendmentGroup } = this.props
     const amendmentNumber = i + 1
@@ -50,6 +78,7 @@ export default class Amendment extends React.Component {
           target="_blank"
         >
           <div className={styles['relating-to']}>Relating to</div>
+          {amendmentGroup.name === 'HONOLULU CHARTER AMEND' ? `${amendmentNumber}. ` : null}
           {this._renderSingleAmendmentName(amendment.Contest_Name)}
         </a>
       </div>
@@ -70,6 +99,7 @@ export default class Amendment extends React.Component {
           The following lists the related topics for the proposed {this._renderAmendmentGroupName()} amendments. You can vote YES or NO on each proposed amendment.
           {this._renderAdditionalAmmendmentInfo()}
         </div>
+        {this._renderAdditionalAmendmentSection()}
         <div className={styles['amendment-list']}>
           {contests.map(this._renderAmendment)}
         </div>

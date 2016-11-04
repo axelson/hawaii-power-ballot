@@ -11,7 +11,7 @@
 
   .amendment-group-description {
     background: $light-grey;
-    padding: 16px 20px 8px 20px
+    padding: 16px 20px 8px 20px;
   }
 
   .amendment-list {
@@ -41,5 +41,16 @@
   .amendment-link {
     color: $black;
     text-decoration: none;
+  }
+
+  .amendment-additional-info-section {
+    background: $light-grey;
+    padding: 8px 20px;
+  }
+
+  .additional-information-links {
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
   }
 }
