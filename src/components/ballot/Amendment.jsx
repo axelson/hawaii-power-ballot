@@ -52,9 +52,8 @@ export default class Amendment extends React.Component {
         <div className={styles['amendment-additional-info-section']}>
           Additional Information:
           <ul className={styles['additional-information-links']}>
-            <li><a href="http://www.lwv-hawaii.com/pro-con-2016.htm" target="_blank">League of Women Voters of Hawaii Pros and Cons</a></li>
-            <li><a href="https://whatnataliethinks.wordpress.com/2016/10/14/charter-amendment-4-on-rail-whats-not-in-the-booklet/" target="_blank">Relating to amendment #4 (Natalie Iwasa)</a></li>
-            <li><a href="/assets/data/Honolulu_Charter_Testimony_6_Natalie_Iwasa.pdf" target="_blank">Relating to amendment #6 (Natalie Iwasa)</a></li>
+            <li><a href="http://www.lwv-hawaii.com/pro-con-2016.htm" target="_blank">League of Women Voters of Hawaii — Pros and Cons</a></li>
+            <li><a href="https://whatnataliethinks.wordpress.com/2016/10/22/20-charter-amendments-recommendations-and-further-research/" target="_blank">Natlie Iwasa — Recommendations and Further Research</a></li>
           </ul>
         </div>
       )
