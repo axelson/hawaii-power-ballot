@@ -5960,9 +5960,9 @@ source-map@~0.1.7:
   dependencies:
     amdefine ">=0.0.4"
 
-"source-sans-pro@git://github.com/adobe-fonts/source-sans-pro.git#release":
+source-sans-pro@2.20.2:
   version "2.20.2"
-  resolved "git://github.com/adobe-fonts/source-sans-pro.git#1a31ead76ead2236cf18a4198d9c618f69c9ac5f"
+  resolved "https://registry.yarnpkg.com/source-sans-pro/-/source-sans-pro-2.20.2.tgz#ee24a6f9680af4e05736be9c1afee3d714618782"
 
 sourcemapped-stacktrace@^1.1.6:
   version "1.1.8"
