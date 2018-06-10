@@ -16,9 +16,7 @@ Run these commands:
 
 # Production Deploys
 
-Deploy code:
-
-   git push production origin/master:master
+To deploy code updates just push an update to the `production` branch on github
 
 Deploy database:
 
