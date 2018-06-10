@@ -62,12 +62,12 @@
   },
   "devDependencies": {
     "ava": "^0.15.1",
-    "babel-eslint": "^6.1.2",
-    "eslint": "3.7.0",
-    "eslint-config-standard-react": "^4.0.2",
-    "eslint-import-resolver-webpack": "^0.6.0",
+    "babel-eslint": "7.2.2",
+    "eslint": "^4.19",
+    "eslint-config-standard-react": "^6.0",
+    "eslint-import-resolver-webpack": "^0.10",
     "eslint-plugin-import": "^2.0.0",
-    "eslint-plugin-react": "6.3.0",
+    "eslint-plugin-react": "^7.9",
     "webpack-notifier": "^1.4.1"
   },
   "engines": {

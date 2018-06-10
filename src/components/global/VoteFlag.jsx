@@ -22,7 +22,7 @@ export default function VoteFlag (props) {
         width='152'
         height='66'
         icon={StripedFlag}
-        />
+      />
     </div>
   )
 }

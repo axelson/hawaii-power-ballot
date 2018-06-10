@@ -44,8 +44,8 @@ export default class CandidateDetailsLink extends React.Component {
     return (
       <div>
         { linkObject.href
-        ? this._renderKnownLink(linkObject)
-        : this._renderUnknownLink(linkObject) }
+          ? this._renderKnownLink(linkObject)
+          : this._renderUnknownLink(linkObject) }
       </div>
     )
   }

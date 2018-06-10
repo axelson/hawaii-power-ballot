@@ -35,8 +35,8 @@ export default class BallotCandidate extends React.Component {
       <div className={styles['container']}>
         <div className={styles['photo-container']} onClick={this._showModal}>
           {candidate.metadata.photo_url
-          ? <CandidateImage candidate={candidate} />
-          : <SvgIcon icon={NoPhoto} width={64} height={75} /> }
+            ? <CandidateImage candidate={candidate} />
+            : <SvgIcon icon={NoPhoto} width={64} height={75} /> }
         </div>
 
         <div className={styles['details']}>

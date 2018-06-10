@@ -47,8 +47,8 @@ export default class BallotHeader extends React.Component {
           />
           <a className={styles['toggle-map-link']} onClick={this._toggleEmbeddedMap}>Map</a>
           {showEmbeddedMap
-          ? <EmbeddedMap latitude={coordinates.latitude} longitude={coordinates.longitude} />
-          : null}
+            ? <EmbeddedMap latitude={coordinates.latitude} longitude={coordinates.longitude} />
+            : null}
         </div>
       </div>
     )

@@ -59,15 +59,15 @@ export default class CandidateDetails extends React.Component {
           </span>
         </div>
         {authenticated()
-        ? <div className={styles['edit-link']}><a href={`/admin/candidate/${candidate.Candidate_ID}`}>Edit</a></div>
-        : null}
+          ? <div className={styles['edit-link']}><a href={`/admin/candidate/${candidate.Candidate_ID}`}>Edit</a></div>
+          : null}
 
         <div className={styles['content']}>
           {candidate.metadata.photo_url
-          ? <div className={styles['photo-container']}>
-            <CandidateImage candidate={candidate} />
-          </div>
-          : null}
+            ? <div className={styles['photo-container']}>
+              <CandidateImage candidate={candidate} />
+            </div>
+            : null}
           <div>
             <div>
               <Fact label='Seeking Office' value={getContestTitle(candidate.Contest_ID)} />
