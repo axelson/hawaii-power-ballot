@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
-import AdminHeader from 'src/components/global/AdminHeader'
 import Header from 'src/components/global/Header'
 import Footer from 'src/components/global/Footer'
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import { getBallot } from 'src/services/api'
 
@@ -91,6 +92,6 @@ export default class BallotPage extends React.Component {
 BallotPage.propTypes = {
   matchedAddress: PropTypes.string,
   matchedCoordinates: PropTypes.object,
-  params: PropTypes.object,
+  match: PropTypes.object,
   precinct: PropTypes.string,
 }

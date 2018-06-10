@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 import {
   HONOLULU_CHARTER_AMMENDMENTS_PDF,
-  amendmentFullTextLink,
+  // amendmentFullTextLink,
   amendmentDescriptionLink,
   getAmendmentGroupTitle,
 } from 'src/services/amendment_utils.js'

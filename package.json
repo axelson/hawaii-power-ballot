@@ -43,6 +43,7 @@
     "passport-local": "^1.0.0",
     "pg": "^6.1.0",
     "postcss-loader": "^0.13.0",
+    "prop-types": "^15.6.1",
     "query-string": "^4.2.3",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
