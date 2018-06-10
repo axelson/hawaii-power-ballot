@@ -18,7 +18,7 @@ export default class BallotPage extends React.Component {
 
   // We need to check if we have the data. If we don't then fetch it
   componentWillMount () {
-    const { precinct } = this.props.params
+    const { precinct } = this.props.match.params
     if (window.__INITIAL_STATE__ && window.__INITIAL_STATE__.precinct === precinct) {
       this.setState({
         ballot: window.__INITIAL_STATE__.ballot,
@@ -36,13 +36,13 @@ export default class BallotPage extends React.Component {
   }
 
   _hasData () {
-    const { precinct } = this.props.params
+    const { precinct } = this.props.match.params
 
     return this.state.precinct === precinct
   }
 
   _fetchData() {
-    const { precinct } = this.props.params
+    const { precinct } = this.props.match.params
 
     if (!this._hasData() && !this.fetching) {
       this.fetching = true
@@ -57,7 +57,7 @@ export default class BallotPage extends React.Component {
   }
 
   _getBallot () {
-    const { precinct } = this.props.params
+    const { precinct } = this.props.match.params
     if (window.__INITIAL_STATE__ && window.__INITIAL_STATE__.precinct === precinct) {
       return window.__INITIAL_STATE__.ballot
     } else {
@@ -73,7 +73,7 @@ export default class BallotPage extends React.Component {
 
   render () {
     const { matchedAddress, matchedCoordinates } = this.props
-    const { precinct } = this.props.params
+    const { precinct } = this.props.match.params
     const { ballot } = this.state
     if (!this._hasData()) return this._renderLoading()
 

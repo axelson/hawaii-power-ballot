@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Match, Miss, Link } from 'react-router'
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
 import AdminHeader from 'src/components/global/AdminHeader'
 import Header from 'src/components/global/Header'
@@ -49,27 +49,20 @@ export default class App extends Component {
     //   </ul>
     // )
 
-    return (
-      <BrowserRouter>
-        <div>
-          <Match pattern="" render={() => {
-            return (
-              <div>
-                <Match pattern="/admin" component={AdminHeader} />
-                <Miss component={Header} />
-              </div>
-            )
-          }} />
-          <Match exactly pattern="/" render={this._renderHomePage} />
-          <Match pattern="/statewide" component={StatewideBallotPage} />
-          <Match pattern="/ballot/:precinct" render={this._renderBallotPage} />
-          <Match exactly pattern="/admin" render={this._renderAdminHomePage} />
-          <Match pattern="/admin/candidate" component={AdminCandidatePage} />
-          <Miss component={NoMatch} />
-          <Footer />
-        </div>
-      </BrowserRouter>
-    )
+    return <BrowserRouter>
+      <div>
+        <Header />
+        <Switch>
+          <Route path="/" exact render={this._renderHomePage} />
+          <Route path="/statewide" component={StatewideBallotPage} />
+          <Route path="/ballot/:precinct" render={this._renderBallotPage} />
+          <Route path="/admin" exact render={this._renderAdminHomePage} />
+          <Route path="/admin/candidate" component={AdminCandidatePage} />
+          <Route component={NoMatch} />
+        </Switch>
+        <Footer />
+      </div>
+    </BrowserRouter>
   }
 }
 
