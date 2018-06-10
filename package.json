@@ -7,7 +7,7 @@
     "build": "npm run clean && NODE_ENV=production webpack --hide-modules --config webpack.production.config.js",
     "clean": "rimraf dist",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build; fi",
-    "start": "NODE_ENV=development node --harmony-destructuring server.js & node webpack_dev_server.js",
+    "start": "NODE_ENV=development node server.js & node webpack_dev_server.js",
     "start:production": "NODE_ENV=production node server.js",
     "lint": "eslint --ext .js --ext .jsx src server"
   },
