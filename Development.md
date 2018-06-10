@@ -10,10 +10,17 @@ Run these commands:
     npm start
     createdb power_ballot_development
     knex migrate:latest
+    # Note: these scripts hang after they are done working
     node server/update_data.js
     node server/insert_candidate_metadata.js
 
 # Production Deploys
+
+Deploy code:
+
+   git push production origin/master:master
+
+Deploy database:
 
     heroku pg:push power_ballot_development DATABASE_URL --app power-ballot
 
