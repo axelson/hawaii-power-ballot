@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import StatewideBallotHeader from './StatewideBallotHeader'
 import Contest from './Contest'

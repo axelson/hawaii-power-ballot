@@ -1,5 +1,6 @@
 /* global ga:false */
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // eslint-disable-next-line import/named
 import { geocodeAddress, lookupPrecinct } from 'server/services/arc_gis'

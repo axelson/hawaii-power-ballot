@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import BallotCandidate from './BallotCandidate.jsx'
 import { getContestTitle } from 'src/services/contest_utils.js'

@@ -1,5 +1,6 @@
 /* global ga:true */
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Modal, {closeStyle} from 'simple-react-modal'
 
 import SvgIcon from 'src/components/common/SvgIcon'
