@@ -23,7 +23,7 @@ export default class PublicHeader extends React.Component {
             <SvgIcon icon={Logo} className={styles['logo']} />
           </Link>
           <div className={styles['subtext']}>
-            A robust guide to <u>who</u> and <u>what</u> will be on the 2016 General Election ballot.
+            A robust guide to <u>who</u> and <u>what</u> will be on the 2018 General Election ballot.
           </div>
           <div className={styles['vote-flag-container']}>
             <VoteFlag />

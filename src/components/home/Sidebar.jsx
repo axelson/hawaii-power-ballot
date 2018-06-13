@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './sidebar.scss'
 
 export default function Sidebar() {
-  var t = Date.parse('2016-11-08') - Date.parse(new Date())
+  var t = Date.parse('2018-11-06') - Date.parse(new Date())
   var daysTillGeneralElection = Math.floor( t/(1000*60*60*24) )
 
   return (
@@ -14,7 +14,7 @@ export default function Sidebar() {
         Voter Registration Deadline
       </div>
       <p>
-        October 10, 2016, 4:30pm
+        October 9, 2018, 4:30pm
         <br />
         <a href="http://elections.hawaii.gov/">Register now online</a>
       </p>
@@ -25,7 +25,7 @@ export default function Sidebar() {
         Early Walk-in Voting/Late Registration
       </div>
       <p>
-        October 25 - November 5, 2016
+        October 23 - November 3, 2018
       </p>
 
       <div className={styles['separator']} />
@@ -34,7 +34,7 @@ export default function Sidebar() {
         Mail-In Ballot Deadline
       </div>
       <p>
-        Novermber 1, 2016
+        October 30, 2018
       </p>
 
       <div className={styles['separator']} />
@@ -45,7 +45,7 @@ export default function Sidebar() {
             General Election
           </div>
           <p>
-            November 8, 2016
+            November 6, 2018
             <br />
             7 am to 6pm
           </p>

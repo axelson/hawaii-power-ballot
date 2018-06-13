@@ -19,7 +19,7 @@ export default class StatewideBallotHeader extends React.Component {
               Hawaii Statewide Power Ballot
             </span>
             <span className={styles['sub-title']}>
-              General Election 2016
+              General Election 2018
             </span>
           </div>
         </div>

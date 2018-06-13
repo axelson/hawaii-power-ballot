@@ -12,8 +12,8 @@ export default function VoteFlag (props) {
   return (
     <div className={styles['flag-container']}>
       <div className={styles['stars']}>★★★</div>
-      <div className={styles['flag-title']}>2016 General Election</div>
-      <div className={styles['flag-date']}>November 8, 2016</div>
+      <div className={styles['flag-title']}>2018 General Election</div>
+      <div className={styles['flag-date']}>November 6, 2018</div>
       <div>
         <a className={styles['flag-link']} href='http://elections.hawaii.gov/' target='_blank'>Register to Vote!</a>
       </div>
