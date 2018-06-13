@@ -2,6 +2,7 @@
 
 * Install postgres (on Mac you can use Postgres.app)
 * Install npm and node.js (https://nodejs.org/en/)
+* Install yarn: https://yarnpkg.com/en/
 * Install asdf version manager: https://github.com/asdf-vm/asdf
 * Install asdf nodejs plugin: https://github.com/asdf-vm/asdf-nodejs
 
@@ -9,7 +10,7 @@ Run these commands:
 
     asdf install
     npm install -g knex
-    npm install
+    yarn install
     npm start
     createdb power_ballot_development
     knex migrate:latest
