@@ -50,7 +50,7 @@ export default class FindYourBallotContainer extends React.Component {
           this.setState({fetching: false})
           updateMatchedAddress(candidate.address)
           updateMatchedCoordinates({latitude: candidate.location.x, longitude: candidate.location.y})
-          this.context.router.transitionTo(`/ballot/${precinct}`)
+          this.context.router.history.push(`/ballot/${precinct}`)
         } else {
           this._unableToFindPrecinct()
         }
