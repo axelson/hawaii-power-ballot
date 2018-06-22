@@ -1,0 +1,25 @@
+create table raw_data (
+contest TEXT,
+candidate_name TEXT,
+part TEXT,
+email TEXT,
+website TEXT,
+phone TEXT,
+cand_website_url TEXT,
+cand_facebook_url TEXT,
+cand_twitter_url TEXT,
+cand_instagram_url TEXT,
+cand_email_address TEXT,
+cc_registration_number TEXT,
+fec_cc_id TEXT,
+civil_beat_url TEXT,
+lwv_url TEXT,
+staradvertiser_url TEXT,
+candidate_photo_url TEXT
+)
+
+\copy raw_data from '/Users/jason/civic/hawaii-power-ballot/data/2018-data-from-volunteers-cleaned.csv' DELIMITER ',' CSV
+
+insert into candidates(contests,candidate_name,party,phone,website,facebook_url,twitter_url,instagram_url,email_address,cc_registration_number,fec_cc_id,civil_beat_url,staradvertiser_url,candidate_photo_url) select contest,candidate_name,part,phone,cand_website_url,cand_facebook_url,cand_twitter_url,cand_instagram_url,cand_email_address,cc_registration_number,fec_cc_id,civil_beat_url,staradvertiser_url,candidate_photo_url from raw_data;
+
+delete from candidates where candidate_name = 'candidate_name';
