@@ -24,7 +24,7 @@ export function amendmentFullTextLink(ammendmentGroupName, amendmentNumber) {
     let num = amendmentNumber < 10 ? '0' + amendmentNumber : amendmentNumber
     return `http://honoluluchartercommission.org/images/questions/Proposed_Charter_Amendment_${num}.pdf`
   default:
-    return 'http://elections.hawaii.gov/voters/constitutional-and-charter-amendment-questions/'
+    return 'https://elections.hawaii.gov/resources/revision-and-amendment-of-the-hawaii-state-constitution/'
   }
 }
 
@@ -34,7 +34,7 @@ export function amendmentDescriptionLink(ammendmentGroupName, amendmentNumber) {
     let num = amendmentNumber < 10 ? '0' + amendmentNumber : amendmentNumber
     return `http://honoluluchartercommission.org/images/questions/Description_of_Proposed_Charter_Amendment_${num}.pdf`
   default:
-    return 'http://elections.hawaii.gov/voters/constitutional-and-charter-amendment-questions/'
+    return 'https://elections.hawaii.gov/resources/revision-and-amendment-of-the-hawaii-state-constitution/'
   }
 
 }

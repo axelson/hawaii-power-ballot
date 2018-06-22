@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "CON AMEND",
+    "contests": [
+      {
+        "OBJECTID": 100,
+        "Contest_Name": "Constitutional Convention",
+        "Contest_Order": 1501,
+        "Contest_ID": "HI1"
+      },
+      {
+        "OBJECTID": 101,
+        "Contest_Name": "Relating to Surcharge on Residential Investment Properties to Fund Public Education Amendment\tTaxes\tAllow legislature to enact surcharge on residential investment properties",
+        "Contest_Order": 1502,
+        "Contest_ID": "HI2"
+      }
+    ]
+  }
+]

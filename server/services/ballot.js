@@ -1,15 +1,15 @@
 "use strict"
 
-const { getPrecinct, getContests, getAllContests } = require('./arc_gis')
+const { getPrecinct, getAllContests } = require('./arc_gis')
 const { getCandidatesForContests, getCandidatesMetadata } = require('./candidate')
 const { getPollingPlace } = require('./polling_place')
+const STATIC_AMENDMENTS = require('./../data/static_amendments.json')
 
 const CANDIDATE_ID = 'Candidate_ID'
 
 function getAllContestsAndAmendments() {
   return getAllContests().then(results => {
     let contestIds = []
-    let amendmentResults = []
     results.forEach(result => {
       const contest = result.attributes
       let contestId = undefined
@@ -32,19 +32,19 @@ function getAllContestsAndAmendments() {
         contestId = result.attributes.Contest_ID
       }
 
+      // A 2016 check used to determine amendments; since we're avoiding using
+      // the ArcGIS data for amendments in 2018 this is left to ensure that we
+      // don't include amendments in place of candidates
       const isAmendment = Number(contest.Contest_Order) >= 1500
 
       if (contestId) {
         if (!isAmendment) {
           contestIds.push(contestId)
         }
-        else {
-          amendmentResults.push(result)
-        }
       }
     })
 
-    let amendments = parseContestResultsIntoAmendmentsArray(amendmentResults)
+    let amendments = STATIC_AMENDMENTS
 
     return {
       contestIds,
@@ -121,53 +121,17 @@ function getCandidatesMappedIntoContests(contestIds) {
   })
 }
 
-function parseContestResultsIntoAmendmentsArray(results) {
-  let amendmentMap = {}
-  results.forEach(result => {
-    const contest = result.attributes
-    const amendmentGroupId = Math.floor(contest.Contest_Order / 100)
-
-    if (amendmentMap[amendmentGroupId]) {
-      amendmentMap[amendmentGroupId].contests.push(contest)
-    }
-    else {
-      amendmentMap[amendmentGroupId] = {
-        id: amendmentGroupId,
-        name: parseAmendmentGroupName(contest.Contest_Name),
-        contests: [
-          contest,
-        ],
-      }
-    }
-  })
-
-  let amendmentArray = []
-  Object.keys(amendmentMap).forEach(id => {
-    amendmentArray.push(amendmentMap[id])
-  })
-
-  return amendmentArray
-}
-
-function getAmendmentsArray(contestIds) {
-  return getContests(contestIds).then(results => {
-    const amendmentsArray = parseContestResultsIntoAmendmentsArray(results)
-    return amendmentsArray
-  })
-}
-
-function parseAmendmentGroupName(contestName) {
-  const n = contestName.indexOf(':')
-  return contestName.substring(0, n !== -1 ? n : contestName.length)
+function getAmendmentsArray() {
+  return Promise.resolve(STATIC_AMENDMENTS)
 }
 
 function getBallot(districtId) {
   return getDistrictInfo(districtId).then(districtInfo => {
-    const {pollingId, contestIds, amendmentIds} = districtInfo
+    const {pollingId, contestIds} = districtInfo
 
     const pollingPlacePr = getPollingPlace(pollingId)
     const contestsWithCandidatesPr = getCandidatesMappedIntoContests(contestIds)
-    const amendmentsPr = getAmendmentsArray(amendmentIds)
+    const amendmentsPr = getAmendmentsArray()
 
     return Promise.all([pollingPlacePr, contestsWithCandidatesPr, amendmentsPr]).then(results => {
       const ballot = {
