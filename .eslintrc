@@ -88,7 +88,10 @@
     "no-unexpected-multiline": 2,
     "no-unreachable": 2,
     "no-unused-expressions": 0,
-    "no-unused-vars": 2,
+    "no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
     "no-use-before-define": 0,
     "no-wrap-func": 0,
     "prefer-arrow-callback": 2,
