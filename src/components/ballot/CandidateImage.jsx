@@ -26,7 +26,7 @@ export default class CandidateImage extends React.Component {
 
     if (this.state.isValid || authenticated()) {
       return (
-        <img ref={this._saveRef} src={candidate.metadata.photo_url} />
+        <img ref={this._saveRef} src={candidate.candidate_photo_url} />
       )
     }
     else {

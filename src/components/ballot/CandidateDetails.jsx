@@ -18,62 +18,63 @@ export default class CandidateDetails extends React.Component {
     const { candidate } = this.props
 
     const campaignLinks = [
-      'expenditure_viz_url',
-      'csc_standard_url',
-      'csc_special_url',
+      // 'expenditure_viz_url',
+      // 'csc_standard_url',
+      // 'csc_special_url',
     ]
 
     const candidateLinks = [
-      'cand_website_url',
-      'cand_email',
-      'cand_facebook_url',
-      'cand_linked',
-      'cand_twitter_url',
+      'website',
+      'email',
+      'facebook_url',
+      // 'cand_linked',
+      'twitter_url',
+      'instagram_url',
     ]
 
     const otherLinks = [
-      'gov_website_url',
-      'lwv_website_url',
-      'ftm_website_url',
-      'pvs_website_url',
-      'bp_website_url',
-      'wp_website_url',
-      'cb_website_url',
-      {
-        field: 'pbs_hawaii_url',
-        alwaysShow: false,
-      },
-      {
-        field: 'staradvertiser_url',
-        alwaysShow: false,
-      },
+      // 'gov_website_url',
+      // 'lwv_website_url',
+      // 'ftm_website_url',
+      // 'pvs_website_url',
+      // 'bp_website_url',
+      // 'wp_website_url',
+      // 'cb_website_url',
+      // {
+      //   field: 'pbs_hawaii_url',
+      //   alwaysShow: false,
+      // },
+      // {
+      //   field: 'staradvertiser_url',
+      //   alwaysShow: false,
+      // },
     ]
 
     return (
       <div className={styles['container']}>
         <div className={styles['candidate-name-container']}>
           <span className={styles['candidate-name']}>
-            {candidate.Candidate_Name} ({candidate.Candidate_Party})
+            {candidate.Candidate_Name} ({candidate.party})
           </span>
           <span className={styles['incumbent-text']}>
-            {candidate.metadata.incumbent_text}
+            {/* candidate.metadata.incumbent_text */}
           </span>
         </div>
         {authenticated()
-          ? <div className={styles['edit-link']}><a href={`/admin/candidate/${candidate.Candidate_ID}`}>Edit</a></div>
+          ? <div className={styles['edit-link']}><a href={`/admin/candidate/${candidate.candidate_name}`}>Edit</a></div>
           : null}
 
         <div className={styles['content']}>
-          {candidate.metadata.photo_url
+          {candidate.candidate_photo_url
             ? <div className={styles['photo-container']}>
               <CandidateImage candidate={candidate} />
             </div>
             : null}
           <div>
             <div>
-              <Fact label='Seeking Office' value={getContestTitle(candidate.Contest_ID)} />
-              <Fact label='Party Affiliations' value={partyIdToTitle(candidate.Candidate_Party)} />
-              <Fact label='Occupation' value={candidate.metadata.occupation} />
+              <Fact label='Seeking Office' value={getContestTitle(candidate.contest_id)} />
+              <Fact label='Party Affiliations' value={partyIdToTitle(candidate.party)} />
+              {/*<Fact label='Occupation' value={candidate.metadata.occupation} />*/}
             </div>
 
             <div className={styles['separator']} />
@@ -83,10 +84,12 @@ export default class CandidateDetails extends React.Component {
                 <div className={styles['section-title']}>
                   Candidate Committee
                 </div>
+                {/*
                 <Fact label='Name' value={candidate.metadata.cc_name} />
                 <Fact label='Chair' value={candidate.metadata.cc_chair} />
                 <Fact label='Treasurer' value={candidate.metadata.cc_treasurer} />
                 <CandidateDetailsLink candidate={candidate} fieldName='cc_report_url' />
+                */}
               </div>
               <CandidateDetailsLinks className={styles['column']} title="Campaign Finance Links" candidate={candidate} links={campaignLinks} />
             </div>

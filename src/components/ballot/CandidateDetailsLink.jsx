@@ -6,19 +6,19 @@ import { metadataFieldNameToTitle } from 'src/services/candidate_utils.js'
 
 export default class CandidateDetailsLink extends React.Component {
 
-  _fieldToHref(metadata, field) {
-    if (field === 'cand_email' && metadata[field]) {
-      return 'mailto: ' + metadata[field]
+  _fieldToHref(candidate, field) {
+    if (field === 'cand_email' && candidate[field]) {
+      return 'mailto: ' + candidate[field]
     }
     else {
-      return metadata[field]
+      return candidate[field]
     }
   }
 
-  _createLinkObject(metadata, fieldName) {
+  _createLinkObject(candidate, fieldName) {
     return {
       title: metadataFieldNameToTitle(fieldName),
-      href: this._fieldToHref(metadata, fieldName),
+      href: this._fieldToHref(candidate, fieldName),
     }
   }
 
@@ -39,8 +39,7 @@ export default class CandidateDetailsLink extends React.Component {
 
   render () {
     const { candidate, fieldName } = this.props
-    const { metadata } = candidate
-    const linkObject = this._createLinkObject(metadata, fieldName)
+    const linkObject = this._createLinkObject(candidate, fieldName)
 
     return (
       <div>

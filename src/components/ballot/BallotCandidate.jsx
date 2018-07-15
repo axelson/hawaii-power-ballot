@@ -35,7 +35,7 @@ export default class BallotCandidate extends React.Component {
     return (
       <div className={styles['container']}>
         <div className={styles['photo-container']} onClick={this._showModal}>
-          {candidate.metadata.photo_url
+          {candidate.candidate_photo_url
             ? <CandidateImage candidate={candidate} />
             : <SvgIcon icon={NoPhoto} width={64} height={75} /> }
         </div>
@@ -43,11 +43,11 @@ export default class BallotCandidate extends React.Component {
         <div className={styles['details']}>
           <div className={styles['name']}>
             <a onClick={this._showModal}>
-              {candidate.Candidate_Name}
+              {candidate.candidate_name}
             </a>
           </div>
           <div className={styles['party']}>
-            {partyIdToTitle(candidate.Candidate_Party)}
+            {partyIdToTitle(candidate.party)}
           </div>
         </div>
 
