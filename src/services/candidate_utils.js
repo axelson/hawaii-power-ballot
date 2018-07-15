@@ -70,8 +70,8 @@ export function metadataFieldNameToTitle(fieldName) {
     return 'Twitter'
   case 'instagram_url':
     return 'Instagram'
-  case 'email_address':
-    return 'Email Address'
+  case 'email':
+    return 'E-mail'
   case 'cc_registration_number':
     return 'Candidate Committe Registration Number'
   case 'fec_cc_id':
