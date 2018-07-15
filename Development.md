@@ -14,8 +14,7 @@ Run these commands:
     createdb power_ballot_development
     knex migrate:latest
     # Note: these scripts hang after they are done working
-    node server/update_data.js
-    node server/insert_candidate_metadata.js
+    node server/insert_polling_places.js
 
 # Running in development
 

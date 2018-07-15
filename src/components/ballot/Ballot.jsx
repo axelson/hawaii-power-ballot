@@ -9,7 +9,7 @@ export default class Ballot extends React.Component {
 
   _renderContest (contest) {
     return (
-      <Contest key={contest.Contest_ID} contest={contest} />
+      <Contest key={contest.contest_id} contest={contest} />
     )
   }
 

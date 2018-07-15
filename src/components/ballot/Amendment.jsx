@@ -72,7 +72,7 @@ export default class Amendment extends React.Component {
     const descriptionLink = amendmentDescriptionLink(amendmentGroup.name, amendmentNumber)
 
     return (
-      <div key={amendment.Contest_ID} className={styles['amendment-name']}>
+      <div key={amendment.contest_id} className={styles['amendment-name']}>
         <a href={descriptionLink}
           className={styles['amendment-link']}
           target="_blank"
