@@ -3,6 +3,7 @@ import React from 'react'
 import { getStatewideBallot } from 'src/services/api'
 
 import StatewideBallot from 'src/components/ballot/StatewideBallot'
+import Error from 'src/components/ballot/Error'
 import Loading from 'src/components/ballot/Loading'
 
 import styles from './ballot-page.scss'
@@ -46,6 +47,12 @@ export default class StatewideBallotPage extends React.Component {
         this.fetching = false
 
         console.log('Done fetching data')
+      }).catch(() => {
+        this.setState({
+          ballot: null,
+          precinct: precinctId,
+          hasData: true,
+        })
       })
     }
   }
@@ -60,11 +67,23 @@ export default class StatewideBallotPage extends React.Component {
     const { ballot } = this.state
     if (!this._hasData()) return this._renderLoading()
 
-    return (
-      <StatewideBallot
-        ballot={ballot}
-      />
-    )
+    if (ballot) {
+      return (
+        <StatewideBallot
+          ballot={ballot}
+        />
+      )
+    }
+    else {
+      let error = {
+        message: "Woops! There was a problem loading in the ballot information.",
+      }
+      return (
+        <Error
+          error={error}
+        />
+      )
+    }
   }
 }
 
