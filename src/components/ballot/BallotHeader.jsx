@@ -9,6 +9,8 @@ import YourIcon from 'src/assets/icon_yourpowerballot-10.svg'
 
 import styles from './ballot-header.scss'
 
+import { YEAR } from './../../services/dates'
+
 export default class BallotHeader extends React.Component {
   state = {
     showEmbeddedMap: false,
@@ -36,7 +38,7 @@ export default class BallotHeader extends React.Component {
               Your Power Ballot
             </span>
             <span className={styles['sub-title']}>
-              General Election 2018
+              General Election {YEAR}
             </span>
           </div>
         </div>

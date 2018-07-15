@@ -6,6 +6,8 @@ import StatewideIcon from 'src/assets/icon_statewide-12.svg'
 
 import styles from './ballot-header.scss'
 
+import { YEAR } from './../../services/dates'
+
 export default class StatewideBallotHeader extends React.Component {
 
   render () {
@@ -19,7 +21,7 @@ export default class StatewideBallotHeader extends React.Component {
               Hawaii Statewide Power Ballot
             </span>
             <span className={styles['sub-title']}>
-              General Election 2018
+              General Election {YEAR}
             </span>
           </div>
         </div>

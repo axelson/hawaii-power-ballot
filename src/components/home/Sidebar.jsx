@@ -2,11 +2,25 @@ import React from 'react'
 
 import styles from './sidebar.scss'
 
+import {
+  PRIMARY_ELECTION_WALK_IN,
+  PRIMARY_ELECTION_MAIL_IN,
+  PRIMARY_ELECTION_DATE,
+  PRIMARY_ELECTION_DATE_STRING,
+  PRIMARY_ELECTION_BUSINESS_HOURS,
+  GENERAL_ELECTION_REGISTRATION_DEADLINE,
+  GENERAL_ELECTION_WALK_IN,
+  GENERAL_ELECTION_MAIL_IN,
+  GENERAL_ELECTION_DATE,
+  GENERAL_ELECTION_DATE_STRING,
+  GENERAL_ELECTION_BUSINESS_HOURS,
+} from './../../services/dates'
+
 export default function Sidebar() {
-  var primaryElectionDate = Date.parse('2018-08-11') - Date.parse(new Date())
+  var primaryElectionDate = PRIMARY_ELECTION_DATE - Date.parse(new Date())
   var daysTillPrimaryElection = Math.floor( primaryElectionDate/(1000*60*60*24) )
 
-  var generalElectionDate = Date.parse('2018-11-06') - Date.parse(new Date())
+  var generalElectionDate = GENERAL_ELECTION_DATE - Date.parse(new Date())
   var daysTillGeneralElection = Math.floor( generalElectionDate/(1000*60*60*24) )
 
   return (
@@ -17,7 +31,7 @@ export default function Sidebar() {
         Primary Election Early Walk-in Voting/Late Registration
       </div>
       <p>
-        July 30 - August 9, 2018
+        {PRIMARY_ELECTION_WALK_IN}
       </p>
 
       <div className={styles['separator']} />
@@ -26,7 +40,7 @@ export default function Sidebar() {
         Primary Election Mail-In Ballot Deadline
       </div>
       <p>
-        August 4, 2018
+        {PRIMARY_ELECTION_MAIL_IN}
       </p>
 
       <div className={styles['separator']} />
@@ -37,9 +51,9 @@ export default function Sidebar() {
             Primary Election
           </div>
           <p>
-            August 11, 2018
+            {PRIMARY_ELECTION_DATE_STRING}
             <br />
-            7am to 6pm
+            {PRIMARY_ELECTION_BUSINESS_HOURS}
           </p>
         </div>
         <div className={styles['countdown-container']}>
@@ -53,7 +67,7 @@ export default function Sidebar() {
         General Election Voter Registration Deadline
       </div>
       <p>
-        October 9, 2018, 4:30pm
+        {GENERAL_ELECTION_REGISTRATION_DEADLINE}
         <br />
         <a href="http://elections.hawaii.gov/">Register now online</a>
       </p>
@@ -64,7 +78,7 @@ export default function Sidebar() {
         General Election Early Walk-in Voting/Late Registration
       </div>
       <p>
-        October 23 - November 3, 2018
+        {GENERAL_ELECTION_WALK_IN}
       </p>
 
       <div className={styles['separator']} />
@@ -73,7 +87,7 @@ export default function Sidebar() {
         General Election Mail-In Ballot Deadline
       </div>
       <p>
-        October 30, 2018
+        {GENERAL_ELECTION_MAIL_IN}
       </p>
 
       <div className={styles['separator']} />
@@ -84,9 +98,9 @@ export default function Sidebar() {
             General Election
           </div>
           <p>
-            November 6, 2018
+            {GENERAL_ELECTION_DATE_STRING}
             <br />
-            7am to 6pm
+            {GENERAL_ELECTION_BUSINESS_HOURS}
           </p>
         </div>
         <div className={styles['countdown-container']}>
