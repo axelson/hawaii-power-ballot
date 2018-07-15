@@ -11,12 +11,20 @@ Run these commands:
     asdf install
     npm install -g knex
     yarn install
-    npm start
     createdb power_ballot_development
     knex migrate:latest
     # Note: these scripts hang after they are done working
     node server/update_data.js
     node server/insert_candidate_metadata.js
+
+# Running in development
+
+    npm start
+
+Visit http://localhost:3000
+
+Note: `npm start` starts the node server on port 4000 and the webpack dev server
+on port 3000. The webpack dev server forwards requests to the node server.
 
 # Production Deploys
 
