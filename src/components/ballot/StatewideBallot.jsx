@@ -8,9 +8,7 @@ import Amendment from './Amendment'
 export default class StatewideBallot extends React.Component {
 
   _renderContest (contest) {
-    return (
-      <Contest key={contest.Contest_ID} contest={contest} />
-    )
+    return <Contest key={contest.contest_id} contest={contest} />
   }
 
   _renderAmendment (amendmentGroup) {

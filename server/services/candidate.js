@@ -1,4 +1,5 @@
 "use strict"
+const Bookshelf = require('../bookshelf')
 const Candidate = require('../models/candidate')
 const CandidateMetadata = require('../models/candidate_metadata')
 
@@ -21,9 +22,9 @@ function getCandidateById(id) {
 function getCandidatesForContests(contestIds) {
   return Candidate
     .query((qb) => {
-      qb.whereIn('Contest_ID', contestIds)
+      qb.whereIn('contest_id', contestIds)
     })
-    .orderBy(CANDIDATE_ID, 'ASC')
+    .orderBy('candidate_name', 'ASC')
     .fetchAll()
     .then(results => {
       let candidates = results.map(candidateModel => {
@@ -101,7 +102,15 @@ function setCandidateMetadata(candidateId, metadata) {
     })
 }
 
+function getAllContestIds() {
+  const query = Bookshelf.knex.raw('select distinct contest_id from candidates')
+  return query.then(res => {
+    return res.rows.map(row => row.contest_id)
+  })
+}
+
 module.exports = {
+  getAllContestIds,
   getCandidateById,
   getCandidatesMetadata,
   getCandidatesForContests,

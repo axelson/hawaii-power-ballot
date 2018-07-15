@@ -9,7 +9,7 @@ import styles from './contest.scss'
 export default class Contest extends React.Component {
   _renderContestName () {
     const { contest } = this.props
-    return getContestTitle(contest.Contest_ID)
+    return getContestTitle(contest.contest_id)
   }
 
   render () {

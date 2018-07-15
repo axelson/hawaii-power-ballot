@@ -64,23 +64,6 @@ function getPrecinct(dp) {
   })
 }
 
-function getAllContests() {
-  // HI2016G_Precincts_HACC
-  const baseUrl = 'https://services2.arcgis.com/tuFQUQg1xd48W6M5/ArcGIS/rest/services/HACC_HI2016G_Candidates/FeatureServer/2/query'
-
-  const result = SuperAgent.get(baseUrl)
-    .query({
-      where: "1=1",
-      outFields: '*',
-      orderByFields: 'Contest_Order',
-      f: 'pjson',
-    })
-
-  return result.then((data) => {
-    return JSON.parse(data.text).features
-  })
-}
-
 function getContests(ids) {
   // HI2016G_Precincts_HACC
   const baseUrl = 'https://services2.arcgis.com/tuFQUQg1xd48W6M5/ArcGIS/rest/services/HACC_HI2016G_Candidates/FeatureServer/2/query'
@@ -145,7 +128,6 @@ function lookupPrecinct (coordinates, spatialReference) {
 module.exports = {
   geocodeAddress,
   getPrecinct,
-  getAllContests,
   getContests,
   lookupPrecinct,
 }
