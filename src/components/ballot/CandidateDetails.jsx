@@ -79,22 +79,22 @@ export default class CandidateDetails extends React.Component {
 
             <div className={styles['separator']} />
 
+            {/*
             <div className={styles['section']}>
               <div className={styles['column']}>
                 <div className={styles['section-title']}>
                   Candidate Committee
                 </div>
-                {/*
                 <Fact label='Name' value={candidate.metadata.cc_name} />
                 <Fact label='Chair' value={candidate.metadata.cc_chair} />
                 <Fact label='Treasurer' value={candidate.metadata.cc_treasurer} />
                 <CandidateDetailsLink candidate={candidate} fieldName='cc_report_url' />
-                */}
               </div>
               <CandidateDetailsLinks className={styles['column']} title="Campaign Finance Links" candidate={candidate} links={campaignLinks} />
             </div>
 
             <div className={styles['separator']} />
+            */}
 
             <div className={styles['section']}>
               <CandidateDetailsLinks className={styles['column']} title="Candidate Links" candidate={candidate} links={candidateLinks} />
