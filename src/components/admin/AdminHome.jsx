@@ -7,10 +7,9 @@ export default class AdminHome extends React.Component {
   _renderEditProgress (candidate) {
     if (!candidate) return null
 
-    const metadata = candidate.metadata
-    const totalNumFields = Object.keys(metadata).length
-    const filledValues = Object.keys(metadata).filter((key) => {
-      !!metadata[key]
+    const totalNumFields = Object.keys(candidate).length
+    const filledValues = Object.keys(candidate).filter((key) => {
+      return !!candidate[key]
     }).length
 
     return (
@@ -22,9 +21,9 @@ export default class AdminHome extends React.Component {
 
   _renderCandidate = (candidate) => {
     return (
-      <div key={candidate.Candidate_ID}>
-        {candidate.Candidate_Name}&nbsp;
-        (<a href={`/admin/candidate/${candidate.Candidate_ID}`}>Edit</a>)
+      <div key={candidate.candidate_name}>
+        {candidate.candidate_name}&nbsp;
+        (<a href={`/admin/candidate/${candidate.candidate_name}`}>Edit</a>)
         {this._renderEditProgress(candidate)}
       </div>
     )

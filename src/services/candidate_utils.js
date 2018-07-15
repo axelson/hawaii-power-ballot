@@ -89,7 +89,7 @@ export function metadataFieldNameToTitle(fieldName) {
   return fieldName
 }
 
-export function updateCandidateMetadata(candidateId, metadata) {
-  var request = SuperAgent.put('/admin/candidate/' + candidateId).send(metadata)
+export function updateCandidate(candidateName, metadata) {
+  var request = SuperAgent.put('/admin/candidate/' + candidateName).send(metadata)
   return request
 }

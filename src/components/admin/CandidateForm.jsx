@@ -24,32 +24,32 @@ const ignoredFields = [
 
 export default class CandidateForm extends React.Component {
 
-  _renderField(candidateMetadata, fieldName, index) {
+  _renderField(candidate, fieldName, index) {
     const { updateCandidateField } = this.props
 
     return (
       <CandidateFormField
         fieldName={fieldName}
-        value={candidateMetadata[fieldName]}
+        value={candidate[fieldName]}
         updateCandidateField={updateCandidateField}
         key={index} />
     )
   }
 
   render () {
-    const { candidateMetadata, saveMetadata } = this.props
+    const { candidate, saveCandidate } = this.props
 
     return (
       <div>
         <div className={styles['candidate-form']}>
-          { Object.keys(candidateMetadata).map((fieldName, index) => {
+          { Object.keys(candidate).map((fieldName, index) => {
             if (!ignoredFields.includes(fieldName)) {
-              return this._renderField(candidateMetadata, fieldName, index)
+              return this._renderField(candidate, fieldName, index)
             }
           }) }
         </div>
 
-        <div className={styles['save-button']} onClick={saveMetadata}>
+        <div className={styles['save-button']} onClick={saveCandidate}>
           SAVE
         </div>
 
@@ -59,7 +59,7 @@ export default class CandidateForm extends React.Component {
 }
 
 CandidateForm.propTypes = {
-  candidateMetadata: PropTypes.object,
+  candidate: PropTypes.object,
   updateCandidateField: PropTypes.func.isRequired,
-  saveMetadata: PropTypes.func.isRequired,
+  saveCandidate: PropTypes.func.isRequired,
 }

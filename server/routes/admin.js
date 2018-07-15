@@ -6,7 +6,7 @@ const {scriptUrl} = require('../services/server_helpers')
 const {
   getCandidateById,
   getFullCandidatePromise,
-  setCandidateMetadata,
+  setCandidate,
 } = require('../services/candidate')
 
 router.get('/', isLoggedIn, (req, res) => {
@@ -57,11 +57,11 @@ router.get('/candidate/id/:id', isLoggedIn, (req, res) => {
   })
 })
 
-router.get('/candidate/:candidateId', isLoggedIn, (req, res) => {
-  const candidateId = req.params.candidateId
-  console.log('candidateId', candidateId)
+router.get('/candidate/:candidateName', isLoggedIn, (req, res) => {
+  const candidateName = req.params.candidateName
+  console.log('candidateName', candidateName)
 
-  const candidatePr = getFullCandidatePromise(candidateId)
+  const candidatePr = getFullCandidatePromise(candidateName)
 
   var result = candidatePr.then(data => {
     return {
@@ -88,10 +88,10 @@ router.get('/candidate/:candidateId', isLoggedIn, (req, res) => {
   })
 })
 
-router.put('/candidate/:candidateId', isLoggedIn, (req, res) => {
-  const candidateId = req.params.candidateId
+router.put('/candidate/:candidateName', isLoggedIn, (req, res) => {
+  const candidateName = req.params.candidateName
 
-  const candidatePr = setCandidateMetadata(candidateId, req.body)
+  const candidatePr = setCandidate(candidateName, req.body)
 
   var result = candidatePr.then(data => {
     return {

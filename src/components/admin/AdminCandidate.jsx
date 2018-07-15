@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import CandidateDetails from 'src/components/ballot/CandidateDetails'
 import CandidateForm from './CandidateForm'
 
-import { updateCandidateMetadata } from 'src/services/candidate_utils'
+import { updateCandidate } from 'src/services/candidate_utils'
 
 import styles from './admin-candidate.scss'
 
@@ -33,16 +33,16 @@ export default class AdminCandidate extends React.Component {
   _updateCandidateField = (fieldName, value) => {
     const { candidate } = this.state
     let newCandidate = { ...candidate }
-    newCandidate.metadata[fieldName] = value
+    newCandidate[fieldName] = value
     this.setState({candidate: newCandidate})
   }
 
-  _saveMetadata = () => {
+  _saveCandidate = () => {
     const { candidate } = this.state
 
-    updateCandidateMetadata(candidate.Candidate_ID, candidate.metadata).then(
-      updatedMetadata => {
-        console.log(updatedMetadata)
+    updateCandidate(candidate.candidate_name, candidate).then(
+      updatedCandidate => {
+        console.log(updatedCandidate)
         alert('Data saved!')
       },
       failure => {
@@ -54,7 +54,6 @@ export default class AdminCandidate extends React.Component {
 
   render () {
     const { candidate } = this.state
-    const { metadata } = candidate
 
     return (
       <div className='row'>
@@ -67,9 +66,9 @@ export default class AdminCandidate extends React.Component {
           <CandidateDetails candidate={candidate} />
         </div>
         <CandidateForm
-          candidateMetadata={metadata}
+          candidate={candidate}
           updateCandidateField={this._updateCandidateField}
-          saveMetadata={this._saveMetadata}
+          saveCandidate={this._saveCandidate}
         />
       </div>
     )

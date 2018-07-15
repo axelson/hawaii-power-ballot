@@ -1,9 +1,6 @@
 "use strict"
 const Bookshelf = require('../bookshelf')
 const Candidate = require('../models/candidate')
-const CandidateMetadata = require('../models/candidate_metadata')
-
-const CANDIDATE_ID = 'Candidate_ID'
 
 function getCandidateById(id) {
   return Candidate
@@ -34,69 +31,36 @@ function getCandidatesForContests(contestIds) {
     })
 }
 
-function getCandidate(candidateId) {
+function getCandidate(candidateName) {
   return Candidate
-    .where(CANDIDATE_ID, candidateId)
+    .where('candidate_name', candidateName)
     .fetch()
     .then(candidate => {
       return candidate.attributes
     })
 }
 
-function getCandidateMetadata(candidateId) {
-  return getCandidatesMetadata([candidateId]).then(candidatesMetadata => {
-    if (candidatesMetadata && candidatesMetadata.length > 0) {
-      return candidatesMetadata[0]
-    }
-    else {
-      return {}
-    }
-  })
-}
-
-function getCandidatesMetadata(candidateIds) {
-  return CandidateMetadata
-    .query((qb) => {
-      qb.whereIn(CANDIDATE_ID, candidateIds)
-    })
-    .orderBy(CANDIDATE_ID, 'ASC')
-    .fetchAll()
-    .then(results => {
-      let candidatesMetadata = results.map(candidateMetadataModel => {
-        return candidateMetadataModel.attributes
-      })
-      return candidatesMetadata
-    })
-}
-
 function getFullCandidatePromise(candidateId) {
   const candidatePr = getCandidate(candidateId)
-  const candidateMetadataPr = getCandidateMetadata(candidateId)
-  return Promise.all([candidatePr, candidateMetadataPr])
+  return Promise.all([candidatePr])
     .then(results => {
       let fullCandidate = results[0] || {}
-      fullCandidate.metadata = results[1] || {}
       return fullCandidate
     })
 }
 
-function setCandidateMetadata(candidateId, metadata) {
-  return CandidateMetadata
-    .forge({ [CANDIDATE_ID]: candidateId })
+function setCandidate(candidateName, data) {
+  return Candidate
+    .forge({ candidate_name: candidateName })
     .fetch()
-    .then(foundMetadata => {
+    .then(_foundData => {
       let method = 'update'
-      if (foundMetadata === null) {
-        method = 'insert'
-      }
 
-      console.log('method ', method)
-
-      return CandidateMetadata
-        .forge({ [CANDIDATE_ID]: candidateId})
-        .save(metadata, {method: method})
+      return Candidate
+        .forge({ candidate_name: candidateName})
+        .save(data, {method: method})
         .then(savedModel => {
-          console.log('Saved metadata', savedModel)
+          console.log('Saved data', savedModel)
           return savedModel
         })
     })
@@ -112,8 +76,7 @@ function getAllContestIds() {
 module.exports = {
   getAllContestIds,
   getCandidateById,
-  getCandidatesMetadata,
   getCandidatesForContests,
   getFullCandidatePromise,
-  setCandidateMetadata,
+  setCandidate,
 }
