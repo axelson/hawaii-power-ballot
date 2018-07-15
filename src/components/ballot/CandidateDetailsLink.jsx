@@ -11,7 +11,12 @@ export default class CandidateDetailsLink extends React.Component {
       return 'mailto: ' + candidate[field]
     }
     else {
-      return candidate[field]
+      const potentialHref = candidate[field]
+
+      if (potentialHref && !potentialHref.startsWith('http')) {
+        return 'http://' + potentialHref
+      }
+      return potentialHref
     }
   }
 
