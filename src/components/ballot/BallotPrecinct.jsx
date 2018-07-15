@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { officialBallotPdfLink } from '../../services/ballot_utils'
+
 import BallotPollingPlace from './BallotPollingPlace.jsx'
 
 import styles from './ballot-precinct.scss'
@@ -8,12 +10,13 @@ import styles from './ballot-precinct.scss'
 export default class BallotPrecinct extends React.Component {
   _renderPollingPlace () {
     const { pollingPlace } = this.props
+    console.log('pollingPlace', pollingPlace)
     return (
       <div className={styles['section']}>
         <div className={styles['header']}>Your Polling Place</div>
         <BallotPollingPlace pollingPlace={pollingPlace} />
         <br />
-        <a href={`https://olvr.hawaii.gov/2016GeneralElectionBallots/English/${pollingPlace.POLLINGID.replace('-', '')}EN.pdf`} target='_blank'>View Official Ballot</a>
+        <a href={officialBallotPdfLink(pollingPlace.POLLINGID)} target='_blank'>View Official Ballot</a>
       </div>
     )
   }
