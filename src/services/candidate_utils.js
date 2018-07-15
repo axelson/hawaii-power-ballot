@@ -25,6 +25,25 @@ export function partyIdToTitle(partyId) {
   }
 }
 
+export function partyToTitle(party) {
+  switch (party) {
+  case 'NONPARTISAN SPECIAL':
+    return 'NS'
+  case 'NONPARTISAN':
+    return 'N'
+  case 'DEMOCRATIC':
+    return 'D'
+  case 'GREEN':
+    return 'G'
+  case 'REPUBLICAN':
+    return 'R'
+  case 'LIBERTARIAN':
+    return 'L'
+  default:
+    return party
+  }
+}
+
 export function metadataFieldNameToTitle(fieldName) {
   switch (fieldName) {
 

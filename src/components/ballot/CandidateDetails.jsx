@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { getContestTitle } from 'src/services/contest_utils.js'
-import { partyIdToTitle } from 'src/services/candidate_utils.js'
+import { partyToTitle } from 'src/services/candidate_utils.js'
 import { authenticated } from 'src/services/authentication_utils'
 
 import CandidateDetailsLink from './CandidateDetailsLink.jsx'
@@ -54,7 +54,7 @@ export default class CandidateDetails extends React.Component {
       <div className={styles['container']}>
         <div className={styles['candidate-name-container']}>
           <span className={styles['candidate-name']}>
-            {candidate.Candidate_Name} ({candidate.party})
+            {candidate.candidate_name} ({partyToTitle(candidate.party)})
           </span>
           <span className={styles['incumbent-text']}>
             {/* candidate.metadata.incumbent_text */}
@@ -73,7 +73,7 @@ export default class CandidateDetails extends React.Component {
           <div>
             <div>
               <Fact label='Seeking Office' value={getContestTitle(candidate.contest_id)} />
-              <Fact label='Party Affiliations' value={partyIdToTitle(candidate.party)} />
+              <Fact label='Party Affiliations' value={candidate.party} />
               {/*<Fact label='Occupation' value={candidate.metadata.occupation} />*/}
             </div>
 
