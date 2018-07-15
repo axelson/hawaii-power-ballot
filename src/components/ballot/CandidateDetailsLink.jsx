@@ -7,7 +7,7 @@ import { metadataFieldNameToTitle } from 'src/services/candidate_utils.js'
 export default class CandidateDetailsLink extends React.Component {
 
   _fieldToHref(candidate, field) {
-    if (field === 'cand_email' && candidate[field]) {
+    if (field === 'email_address' && candidate[field]) {
       return 'mailto: ' + candidate[field]
     }
     else {

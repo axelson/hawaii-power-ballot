@@ -25,7 +25,7 @@ export default class CandidateDetails extends React.Component {
 
     const candidateLinks = [
       'website',
-      'email',
+      'email_address',
       'facebook_url',
       // 'cand_linked',
       'twitter_url',
