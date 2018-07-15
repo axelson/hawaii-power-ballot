@@ -63,7 +63,7 @@ export function metadataFieldNameToTitle(fieldName) {
   case 'phone':
     return 'Phone number'
   case 'website':
-    return 'Offical Website'
+    return 'Website'
   case 'facebook_url':
     return 'Facebook'
   case 'twitter_url':
