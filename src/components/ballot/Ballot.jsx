@@ -5,6 +5,8 @@ import BallotHeader from './BallotHeader'
 import Contest from './Contest'
 import Amendment from './Amendment'
 
+import { sortContests } from './../../services/contest_utils'
+
 export default class Ballot extends React.Component {
 
   _renderContest (contest) {
@@ -23,6 +25,8 @@ export default class Ballot extends React.Component {
     const { address, ballot, coordinates, precinct } = this.props
     if (!ballot) return null
     const { contests, amendments } = ballot
+
+    sortContests(contests)
 
     return (
       <div>

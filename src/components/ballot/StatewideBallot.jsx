@@ -5,6 +5,8 @@ import StatewideBallotHeader from './StatewideBallotHeader'
 import Contest from './Contest'
 import Amendment from './Amendment'
 
+import { sortContests } from './../../services/contest_utils'
+
 export default class StatewideBallot extends React.Component {
 
   _renderContest (contest) {
@@ -21,6 +23,8 @@ export default class StatewideBallot extends React.Component {
     const { ballot } = this.props
     if (!ballot) return null
     const { contests, amendments } = ballot
+
+    sortContests(contests)
 
     return (
       <div>
