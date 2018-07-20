@@ -106,6 +106,9 @@ export function sortCandidates(candidates) {
   // Bracket by party
   const grouped = groupBy(candidates, 'party')
   const values = Object.values(grouped)
+  values.forEach(candidateList => {
+    shuffleArray(candidateList)
+  })
   shuffleArray(values)
 
   return flatten(values)
