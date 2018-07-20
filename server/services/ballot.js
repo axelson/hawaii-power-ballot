@@ -73,7 +73,9 @@ function getBallot(districtId) {
       const ballot = {
         pollingPlace: results[0],
         contests: results[1],
-        amendments: results[2],
+        // Disabled for the primary
+        // amendments: results[2],
+        amendments: [],
       }
 
       return ballot
@@ -88,7 +90,9 @@ function getStatewideBallot() {
     return contestsWithCandidatesPr.then(contests => {
       const ballot = {
         contests,
-        amendments: amendments,
+        // Disabled for the primary
+        // amendments: amendments,
+        amendments: []
       }
       return ballot
     })
