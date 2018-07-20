@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import BallotCandidate from './BallotCandidate.jsx'
+import { sortCandidates } from 'src/services/candidate_utils'
 import { getContestTitle } from 'src/services/contest_utils.js'
 
 import styles from './contest.scss'
@@ -14,7 +15,9 @@ export default class Contest extends React.Component {
 
   render () {
     const { contest } = this.props
-    const { candidates } = contest
+    let { candidates } = contest
+
+    candidates = sortCandidates(candidates)
 
     return (
       <div>

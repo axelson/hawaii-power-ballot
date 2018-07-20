@@ -1,4 +1,8 @@
 import SuperAgent from 'superagent'
+import groupBy from 'lodash/groupBy'
+import flatten from 'lodash/flatten'
+
+import { shuffleArray } from 'src/services/utils'
 
 export function partyIdToTitle(partyId) {
   switch (partyId.toLowerCase()) {
@@ -92,4 +96,17 @@ export function metadataFieldNameToTitle(fieldName) {
 export function updateCandidate(candidateName, metadata) {
   var request = SuperAgent.put('/admin/candidate/' + candidateName).send(metadata)
   return request
+}
+
+export function sortCandidatesA(candidates) {
+  return candidates
+}
+
+export function sortCandidates(candidates) {
+  // Bracket by party
+  const grouped = groupBy(candidates, 'party')
+  const values = Object.values(grouped)
+  shuffleArray(values)
+
+  return flatten(values)
 }
