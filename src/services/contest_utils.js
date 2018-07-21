@@ -340,6 +340,10 @@ export function getContestOrder(contestId) {
     return 101
   case "PVP":
     return 101
+  case "GOV":
+    return 105
+  case "LG":
+    return 106
   case "USP":
     return 102
   case "USVP":
@@ -354,10 +358,6 @@ export function getContestOrder(contestId) {
     return 303
   case "GLG":
     return 501
-  case "GOV":
-    return 502
-  case "LG":
-    return 503
   case "S1":
     return 701
   case "S2":
