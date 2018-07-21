@@ -50,7 +50,7 @@ function getPrecincts() {
 
 function getPrecinct(dp) {
   // HI2016G_Precincts_HACC
-  const baseUrl = 'https://services2.arcgis.com/tuFQUQg1xd48W6M5/ArcGIS/rest/services/HACC_HI2016G_Candidates/FeatureServer/1/query'
+  const baseUrl = 'https://services2.arcgis.com/tuFQUQg1xd48W6M5/arcgis/rest/services/PowerBallotHI2018P/FeatureServer/0/query'
 
   const result = SuperAgent.get(baseUrl)
     .query({

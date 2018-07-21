@@ -9,7 +9,7 @@ function getDistrictInfo(dp) {
   return getPrecinct(dp).then(results => {
     let pollingId = ''
     let contestsFromAllDistricts = results.map(result => {
-      pollingId = result.attributes.PollingID
+      pollingId = result.attributes.DP
       return result.attributes.Contests.split('-')
     })
 
