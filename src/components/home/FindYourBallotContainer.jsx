@@ -3,15 +3,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // eslint-disable-next-line import/named
-import { geocodeAddress, lookupPrecinct } from 'server/services/arc_gis'
+import { geocodeAddress, geocodeFromMagicKey, lookupPrecinct } from 'server/services/arc_gis'
 
 import FindYourBallot from './FindYourBallot'
 
 export default class FindYourBallotContainer extends React.Component {
   state = {
     address: '',
+    selectedSuggestion: null,
     addressLookupResult: {},
     fetching: false,
+    suggestions: [],
   }
 
   _updateAddress = (e) => {
@@ -23,19 +25,38 @@ export default class FindYourBallotContainer extends React.Component {
     }
   }
 
+  _onSuggestionSelected = (asEvent, { suggestion, suggestionValue }) => {
+    this.setState({
+      selectedSuggestion: suggestion,
+      address: suggestionValue,
+    })
+  }
+
   _lookupAddress = () => {
     if (typeof ga !== 'undefined') {
       ga('send', 'event', 'button', 'navigation', 'find_your_power_ballot', 1)
     }
 
-    const { address } = this.state
-    // Do query and then update state with output and display below
-    geocodeAddress(address).then((result) => {
-      // TODO: Ensure we have at least one candidate
-      this.setState({addressLookupResult: result})
-      this._lookupPrecinct()
-    })
-    this.setState({fetching: true})
+    const { address, selectedSuggestion } = this.state
+
+    // Use the magic key if it exists
+    if (selectedSuggestion && (address === selectedSuggestion.text) && selectedSuggestion.magicKey) {
+      // Do query and then update state with output and display below
+      geocodeFromMagicKey(selectedSuggestion.magicKey).then((result) => {
+        this.setState({addressLookupResult: result})
+        this._lookupPrecinct()
+      })
+      this.setState({fetching: true})
+    }
+    else {
+      // Do query and then update state with output and display below
+      geocodeAddress(address).then((result) => {
+        // TODO: Ensure we have at least one candidate
+        this.setState({addressLookupResult: result})
+        this._lookupPrecinct()
+      })
+      this.setState({fetching: true})
+    }
   }
 
   _lookupPrecinct = () => {
@@ -68,7 +89,7 @@ export default class FindYourBallotContainer extends React.Component {
 
   render () {
     const { } = this.props
-    const { address, fetching } = this.state
+    const { address, fetching, suggestions } = this.state
 
     return (
       <FindYourBallot
@@ -76,7 +97,9 @@ export default class FindYourBallotContainer extends React.Component {
         onChange={this._updateAddress}
         onKeyPress={this._onKeyPress}
         value={address}
+        suggestions={suggestions}
         onSubmitHandler={this._lookupAddress}
+        onSuggestionSelected={this._onSuggestionSelected}
       />
     )
   }

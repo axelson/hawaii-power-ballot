@@ -49,7 +49,7 @@ function getPrecincts() {
 }
 
 function getPrecinct(dp) {
-  // HI2016G_Precincts_HACC
+  // HI2018G_Precincts_HACC
   const baseUrl = 'https://services2.arcgis.com/tuFQUQg1xd48W6M5/arcgis/rest/services/PowerBallotHI2018P/FeatureServer/0/query'
 
   const result = SuperAgent.get(baseUrl)
@@ -125,9 +125,51 @@ function lookupPrecinct (coordinates, spatialReference) {
   })
 }
 
+function getSuggestions (userValue) {
+  const baseUrl = 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest'
+
+  const result = SuperAgent.get(baseUrl)
+    .query({
+      text: userValue,
+      countryCode: 'USA',
+      category: 'Address,Postal,Populated Place',
+      maxSuggestions: 8,
+      searchExtent: '-160.519409,17.940161,-153.949585,23.426046',
+      f: 'pjson',
+    })
+
+    // { text: 'predictedValue', magicKey: 'keyForNextLookup' }
+
+  return result.then((data) => {
+    return JSON.parse(data.text).suggestions
+  })
+}
+
+function geocodeFromMagicKey (magicKey) {
+  const baseUrl = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates'
+
+  const result = SuperAgent.get(baseUrl)
+    .query({
+      outSR: { wkid: 4326 },
+      outFields: 'Match_addr,stAddr,City',
+      magicKey: magicKey,
+      maxLocations: 3,
+      f: 'json',
+    })
+
+  return result.then((data) => {
+    console.log('got data')
+    return JSON.parse(data.text)
+  }).catch((reason) => {
+    console.log("unable to fetch", reason)
+  })
+}
+
 module.exports = {
   geocodeAddress,
+  geocodeFromMagicKey,
   getPrecinct,
   getContests,
   lookupPrecinct,
+  getSuggestions,
 }
