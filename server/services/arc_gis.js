@@ -133,7 +133,7 @@ function getSuggestions (userValue) {
       text: userValue,
       countryCode: 'USA',
       category: 'Address,Postal,Populated Place',
-      maxSuggestions: 8,
+      maxSuggestions: 5,
       searchExtent: '-160.519409,17.940161,-153.949585,23.426046',
       f: 'pjson',
     })
