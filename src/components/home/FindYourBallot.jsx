@@ -78,19 +78,6 @@ export default class FindYourBallot extends React.Component {
             Find <i>Your</i>&nbsp; “Power Ballot”
           </div>
           <div className={styles['input-container']}>
-            <input
-              className={styles['input']}
-              type='text'
-              placeholder="Type your address (street address, city, state, zip) here to get YOUR Power Ballot"
-              onChange={onChange}
-              onKeyPress={onKeyPress}
-              value={value}
-            />
-            <div className={styles['go-button']} onClick={onSubmitHandler}>
-              GO
-            </div>
-          </div>
-          <div className={styles['input-container']}>
             <Autosuggest
               suggestions={suggestions}
               onSuggestionsFetchRequested={this._onSuggestionsFetchRequested}
