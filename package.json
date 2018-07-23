@@ -66,6 +66,7 @@
   "devDependencies": {
     "ava": "^0.15.1",
     "babel-eslint": "7.2.2",
+    "csv-parse": "^2.5.0",
     "eslint": "^4.19",
     "eslint-config-standard-react": "^6.0",
     "eslint-import-resolver-webpack": "^0.10",

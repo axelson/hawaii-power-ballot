@@ -43,6 +43,16 @@ Then modify the seed file to have absolute references to the locally hosted kanu
 
     %s/\/assets\/kanu/http:\/\/www.hawaiipowerballot.com\/assets\/kanu/g
 
+# Importing new Volunteer data
+
+In shell:
+
+    node server/scripts/csv/update_candidates.js < data/2018-data-from-volunteers-2018-07-16.csv
+
+For production (probably) run as:
+
+    heroku run server/scripts/csv/update_candidates.js < data/2018-data-from-volunteers-2018-07-16.csv
+
 # ArcGIS Services
 
 http://civic-celerator.maps.arcgis.com/home/item.html?id=835932a4c56742db9f25ecc8dfba5cc9
