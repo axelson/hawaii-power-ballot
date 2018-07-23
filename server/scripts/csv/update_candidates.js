@@ -3,6 +3,7 @@
 
 // Open csv file
 var parse = require('csv-parse')
+var fs = require('fs')
 
 const Bookshelf = require('../../bookshelf')
 const Candidate = require('../../models/candidate')
