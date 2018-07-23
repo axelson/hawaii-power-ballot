@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import throttle from 'lodash/throttle'
 
 import Autosuggest from 'react-autosuggest'
 
@@ -12,29 +13,16 @@ export default class FindYourBallot extends React.Component {
 
   state = {
     suggestions: [],
-    debouncing: false,
   }
 
   _getSuggestions = (address) => {
-    const { debouncing } = this.state
-
-    // Reset the debounce timer if it is already in the process
-    if (debouncing) {
-      clearTimeout(debouncing)
-      this.setState({debouncing: false})
-    }
-
     if (!!address) {
-      const currentTimeout = setTimeout(() => {
-        getSuggestions(address).then((result) => {
-          this.setState({
-            suggestions: result,
-            debouncing: false,
-          })
+      getSuggestions(address).then((result) => {
+        this.setState({
+          suggestions: result,
+          debouncing: false,
         })
-      }, 200)
-
-      this.setState({debouncing: currentTimeout})
+      })
     }
   }
 
@@ -49,8 +37,14 @@ export default class FindYourBallot extends React.Component {
     </div>
   )
 
-  _onSuggestionsFetchRequested = ({ value }) => {
+  _throttledGetSuggestions = throttle(value => {
     this._getSuggestions(value)
+  }, 1200, {leading: false})
+
+  _onSuggestionsFetchRequested = ({value, reason}) => {
+    if (reason === 'input-changed') {
+      this._throttledGetSuggestions(value)
+    }
   }
 
   _onSuggestionsClearRequested = () => {
