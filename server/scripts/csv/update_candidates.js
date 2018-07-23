@@ -162,6 +162,12 @@ async function compareAttributes(candidate, line) {
     console.log(`\nUpdate ${candidate.attributes.candidate_name}'s ${definition.name}?`)
     console.log(`csv value: "${csvAttr}"`)
     console.log(`db value:  "${dbAttr}"`)
+    if (dbAttr && csvAttr.trim() === dbAttr.trim()) {
+      return updateCandidate(candidate, definition.dbColumnName, csvAttr)
+    }
+    if (!dbAttr) {
+      return updateCandidate(candidate, definition.dbColumnName, csvAttr)
+    }
 
     if (promptForOverWrite(definition.name)) {
       console.log("Overwriting!")
