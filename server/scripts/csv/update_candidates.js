@@ -2,9 +2,7 @@
 // It prompts on each update
 
 // Open csv file
-var fs = require('fs')
 var parse = require('csv-parse')
-var readline = require('readline-sync')
 
 const Bookshelf = require('../../bookshelf')
 const Candidate = require('../../models/candidate')
@@ -116,6 +114,7 @@ var parser = parse({delimiter: ','}, function (err, data) {
       Bookshelf.knex.destroy()
     })
 })
+
 // fs.createReadStream(inputFile).pipe(parser)
 process.stdin.pipe(parser)
 
