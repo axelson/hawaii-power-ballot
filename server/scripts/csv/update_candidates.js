@@ -7,7 +7,7 @@ var parse = require('csv-parse')
 const Bookshelf = require('../../bookshelf')
 const Candidate = require('../../models/candidate')
 
-// var inputFile = 'data/2018-data-from-volunteers-2018-07-16.csv'
+var inputFile = 'data/2018-data-from-volunteers-2018-07-16.csv'
 // var inputFile = 'short.csv'
 
 const columnDefinitions = {
@@ -115,8 +115,8 @@ var parser = parse({delimiter: ','}, function (err, data) {
     })
 })
 
-// fs.createReadStream(inputFile).pipe(parser)
-process.stdin.pipe(parser)
+fs.createReadStream(inputFile).pipe(parser)
+// process.stdin.pipe(parser)
 
 // Print out each candidate
 function handleCsvLine(line) {
