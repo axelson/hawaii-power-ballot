@@ -3,6 +3,7 @@
 
 // Open csv file
 var parse = require('csv-parse')
+var readline = require('readline-sync')
 var fs = require('fs')
 
 const Bookshelf = require('../../bookshelf')
