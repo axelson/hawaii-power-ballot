@@ -1,4 +1,4 @@
-// This scripts updates candidate data from the CSV of volunteer database
+// This script updates candidate data from the CSV of volunteer database
 // It prompts on each update
 
 // Open csv file
@@ -9,7 +9,7 @@ var fs = require('fs')
 const Bookshelf = require('../../bookshelf')
 const Candidate = require('../../models/candidate')
 
-var inputFile = 'data/2018-data-from-volunteers-2018-07-16.csv'
+var inputFile = 'data/2018-data-from-volunteers-2018-07-25.csv'
 // var inputFile = 'short.csv'
 
 const columnDefinitions = {
@@ -125,7 +125,6 @@ function handleCsvLine(line) {
   const candidateName = readColumn(columnDefinitions.candidateName, line)
   if (candidateName === 'Candidate Name') return new Promise(resolve => resolve())
 
-  console.log('candidateName', candidateName)
   return Candidate
     .forge({candidate_name: candidateName})
     .fetch()
@@ -135,13 +134,35 @@ function handleCsvLine(line) {
         compareAttributes(foundCandidate, line)
       } else {
         console.log(`Unable to find information for ${candidateName}`)
-        return new Promise(resolve => resolve())
+        return insertNewCandidate(line)
       }
     })
 }
 
 function readColumn(columnDefinition, line) {
   return line[columnDefinition.columnNumber]
+}
+
+function insertNewCandidate(line) {
+  const candidateName = readColumn(columnDefinitions.candidateName, line)
+  const attributes = line.reduce((attrs, column, i) => {
+    const columnDefinition = columnDefinitionsByLine[i]
+    if (columnDefinition.dbColumnName) {
+      const csvValue = readColumn(columnDefinition, line)
+      attrs[columnDefinition.dbColumnName] = csvValue
+    }
+    return attrs
+  }, {})
+
+  console.log('Candidate attributes', attributes)
+  var answer = readline.question(`\nAdd new candidate ${candidateName}? `)
+  if (answer == 'y') {
+    console.log("adding!")
+    return new Candidate(attributes).save(null, {method: 'insert'})
+  } else {
+    console.log("Skipping")
+    return new Promise(resolve => resolve())
+  }
 }
 
 // Compare the attributes from the csv and the database

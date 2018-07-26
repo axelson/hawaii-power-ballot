@@ -2,7 +2,7 @@
 
 const superagent = require('superagent')
 
-const PollingPlace = require('./models/polling_place')
+const PollingPlace = require('../../models/polling_place')
 
 const baseUrl = 'http://services2.arcgis.com/tuFQUQg1xd48W6M5/ArcGIS/rest/services/HACC_HI2016G_Candidates/FeatureServer/0/query'
 
