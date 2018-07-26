@@ -76,7 +76,7 @@ const columnDefinitions = {
   previousCivilBeatUrl: {
     name: 'civil_beat_url',
     columnNumber: 12,
-    dbColumnName: false,
+    dbColumnName: 'civil_beat_previous_url',
   },
   civilBeatUrl: {
     name: 'cb_url_2018',
@@ -131,7 +131,7 @@ function handleCsvLine(line) {
     .then(foundCandidate => {
       // Compare the attributes in the database
       if (foundCandidate) {
-        compareAttributes(foundCandidate, line)
+        return compareAttributes(foundCandidate, line)
       } else {
         console.log(`Unable to find information for ${candidateName}`)
         return insertNewCandidate(line)
@@ -174,12 +174,13 @@ async function compareAttributes(candidate, line) {
   // console.log('candidate', candidate)
   return line.map(async function(csvAttr, i) {
     csvAttr = csvAttr.trim()
-    if (csvAttr === '') return
+    if (csvAttr === '') return null
 
     const definition = columnDefinitionsByLine[i]
-    if (definition.dbColumnName === false) return
+    if (definition.dbColumnName === false) return null
     const dbAttr = candidate.attributes[definition.dbColumnName]
-    if (csvAttr === dbAttr) return
+    if (csvAttr === dbAttr) return null
+
     console.log(`\nUpdate ${candidate.attributes.candidate_name}'s ${definition.name}?`)
     console.log(`csv value: "${csvAttr}"`)
     console.log(`db value:  "${dbAttr}"`)

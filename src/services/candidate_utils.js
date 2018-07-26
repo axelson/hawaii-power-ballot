@@ -82,6 +82,8 @@ export function metadataFieldNameToTitle(fieldName) {
     return 'FEC Candidate Committee Identifier'
   case 'civil_beat_url':
     return 'Civil Beat Q&A'
+  case 'civil_beat_previous_url':
+    return 'Civil Beat Q&A (Previous Election)'
   case 'staradvertiser_url':
     return 'Star-Advertiser Link'
   case 'candidate_photo_url':

@@ -51,7 +51,9 @@ In shell:
 
 For production (probably) run as:
 
-    heroku run server/scripts/csv/update_candidates.js < data/2018-data-from-volunteers-2018-07-16.csv
+    heroku run node server/scripts/csv/update_candidates.js
+    
+When you import new data make sure that both the `contests` and the `contest_id` field is properly filled out!
 
 # ArcGIS Services
 
