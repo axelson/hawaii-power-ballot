@@ -11,6 +11,7 @@ export default class Footer extends React.Component {
       <div className={styles['container']}>
         <div className={classnames('row', styles['inner-container'])}>
           <div className={styles['info-text']}>
+            <img className={styles['common-cause-logo']} src="/assets/common_cause_hi_logo.png" />
             <img className={styles['civic-celerator-logo']} src="/assets/civic_celerator_logo.png" />
             <div>Did you find a mistake?</div>
             <div>Do you have a suggestion?</div>
