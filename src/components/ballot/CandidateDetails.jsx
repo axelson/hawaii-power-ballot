@@ -40,7 +40,10 @@ export default class CandidateDetails extends React.Component {
       // 'bp_website_url',
       // 'wp_website_url',
       'civil_beat_url',
-      'civil_beat_previous_url',
+      {
+        field: 'civil_beat_previous_url',
+        alwaysShow: false,
+      },
       // {
       //   field: 'pbs_hawaii_url',
       //   alwaysShow: false,
