@@ -1,6 +1,14 @@
 @import 'src/styles/_variables.scss';
 
 :local {
+  .container {
+    margin: 4px 0;
+    a {
+      display: inline-block;
+      line-height: 1.1;
+    }
+  }
+
   .known-link {
     color: $medium-blue;
     text-decoration: none;

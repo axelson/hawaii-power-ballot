@@ -74,7 +74,7 @@ export default class CandidateDetails extends React.Component {
               <CandidateImage candidate={candidate} />
             </div>
             : null}
-          <div>
+          <div className={styles['details-container']}>
             <div>
               <Fact label='Seeking Office' value={getContestTitle(candidate.contest_id)} />
               <Fact label='Party Affiliations' value={candidate.party} />
