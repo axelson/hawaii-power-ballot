@@ -15,7 +15,7 @@ export default class BallotPollingPlace extends React.Component {
           {pollingPlace.FULLADD}
         </div>
         <div>
-          {pollingPlace.CITY + ' ' + pollingPlace.ZIPCODE}
+          {pollingPlace.CITY}
         </div>
       </div>
     )
