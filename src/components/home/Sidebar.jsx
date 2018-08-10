@@ -16,12 +16,17 @@ import {
   GENERAL_ELECTION_BUSINESS_HOURS,
 } from './../../services/dates'
 
-export default function Sidebar() {
-  var primaryElectionDate = PRIMARY_ELECTION_DATE - Date.parse(new Date())
-  var daysTillPrimaryElection = Math.floor( primaryElectionDate/(1000*60*60*24) )
+// Loosely based on https://stackoverflow.com/a/16485073/175830
+function diffDays (dateMillis) {
+  var oneDay = 24*60*60*1000 // hours*minutes*seconds*milliseconds
+  var now = new Date()
+  var daysDiff = (dateMillis - now.getTime()) / oneDay
+  return Math.ceil(Math.max(0, daysDiff))
+}
 
-  var generalElectionDate = GENERAL_ELECTION_DATE - Date.parse(new Date())
-  var daysTillGeneralElection = Math.floor( generalElectionDate/(1000*60*60*24) )
+export default function Sidebar() {
+  var daysTillPrimaryElection = diffDays(PRIMARY_ELECTION_DATE)
+  var daysTillGeneralElection = diffDays(GENERAL_ELECTION_DATE)
 
   return (
     <div className={styles['container']}>
