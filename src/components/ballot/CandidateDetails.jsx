@@ -53,6 +53,10 @@ export default class CandidateDetails extends React.Component {
         alwaysShow: false,
       },
       {
+        field: 'staradvertiser_previous_url',
+        alwaysShow: false,
+      },
+      {
         field: 'hawaii_news_now_url',
         alwaysShow: false,
       },
