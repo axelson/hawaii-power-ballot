@@ -86,6 +86,8 @@ export function metadataFieldNameToTitle(fieldName) {
     return 'Civil Beat Q&A (Previous Election)'
   case 'staradvertiser_url':
     return 'Star-Advertiser Link'
+  case 'staradvertiser_previous_url':
+    return 'Star-Advertiser Link (Previous Election)'
   case 'hawaii_news_now_url':
     return 'Hawaii News Now Coffee with a Candidate'
   case 'candidate_photo_url':

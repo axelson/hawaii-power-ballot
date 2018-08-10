@@ -9,7 +9,7 @@ var fs = require('fs')
 const Bookshelf = require('../../bookshelf')
 const Candidate = require('../../models/candidate')
 
-var inputFile = 'data/2018-data-from-volunteers-2018-07-26.csv'
+var inputFile = 'data/2018-data-from-volunteers-2018-08-09.csv'
 // var inputFile = 'short.csv'
 
 const columnDefinitions = {
@@ -88,10 +88,10 @@ const columnDefinitions = {
     columnNumber: 14,
     dbColumnName: false,
   },
-  starAdvertiserUrl: {
-    name: 'staradvertiser_url',
+  previousStarAdvertiserUrl: {
+    name: 'staradvertiser_previous_url',
     columnNumber: 15,
-    dbColumnName: 'staradvertiser_url',
+    dbColumnName: 'staradvertiser_previous_url',
   },
   candidatePhotoUrl: {
     name: 'candidate_photo_url',
@@ -102,7 +102,12 @@ const columnDefinitions = {
     name: 'hawaiiNewsNowUrl',
     columnNumber: 17,
     dbColumnName: 'hawaii_news_now_url',
-  }
+  },
+  starAdvertiserUrl: {
+    name: 'staradvertiser_url',
+    columnNumber: 18,
+    dbColumnName: 'staradvertiser_url',
+  },
 }
 
 const columnDefinitionsByLine = Object.values(columnDefinitions).reduce((result, definition) => {
