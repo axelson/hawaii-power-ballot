@@ -3,7 +3,6 @@ import React from 'react'
 import styles from './sidebar.scss'
 
 import {
-  PRIMARY_ELECTION_DATE,
   GENERAL_ELECTION_REGISTRATION_DEADLINE,
   GENERAL_ELECTION_WALK_IN,
   GENERAL_ELECTION_MAIL_IN,
@@ -11,8 +10,6 @@ import {
   GENERAL_ELECTION_DATE_STRING,
   GENERAL_ELECTION_BUSINESS_HOURS,
 } from './../../services/dates'
-
-import PrimaryElectionSidebarInfo from './PrimaryElectionSidebarInfo'
 
 // Loosely based on https://stackoverflow.com/a/16485073/175830
 function diffDays (dateMillis) {
@@ -23,14 +20,11 @@ function diffDays (dateMillis) {
 }
 
 export default function Sidebar() {
-  var daysTillPrimaryElection = diffDays(PRIMARY_ELECTION_DATE)
   var daysTillGeneralElection = diffDays(GENERAL_ELECTION_DATE)
 
   return (
     <div className={styles['container']}>
       <h3 className={styles['header']}>Key Dates</h3>
-      <PrimaryElectionSidebarInfo daysTillPrimaryElection={daysTillPrimaryElection} />
-      <div className={styles['separator']} />
       <div className={styles['event-title']}>
         General Election Voter Registration Deadline
       </div>
