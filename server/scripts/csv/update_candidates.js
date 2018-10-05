@@ -147,7 +147,7 @@ function handleCsvLine(line) {
     .fetch()
     .then(foundCandidate => {
       // Compare the attributes in the database
-      if (inGeneral === 'N') {
+      if (inGeneral !== 'Y') {
         // console.log('Deleting!')
         return deleteCandidate(foundCandidate)
       } else if (foundCandidate) {
