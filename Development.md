@@ -25,6 +25,13 @@ Visit http://localhost:3000
 Note: `npm start` starts the node server on port 4000 and the webpack dev server
 on port 3000. The webpack dev server forwards requests to the node server.
 
+## Manually running in development
+
+If you are making frequent changes to the node server you may not want to keep restarting both the node server and the frontend. If so than you can run them separately.
+
+    NODE_ENV=development node webpack_dev_server.js
+    NODE_ENV=development node server.js
+
 # Production Deploys
 
 To deploy code updates just push an update to the `production` branch on github
@@ -45,9 +52,13 @@ Then modify the seed file to have absolute references to the locally hosted kanu
 
 # Importing new Volunteer data
 
+Download from Google doc as csv: https://docs.google.com/spreadsheets/d/1KD_w_KqwWKNZ-iFCTgVaTqChACN0-_4Yw97w4_jw3vI/edit#gid=2040730866
+
+Update update_candidates script to point to new data file
+
 In shell:
 
-    node server/scripts/csv/update_candidates.js < data/2018-data-from-volunteers-2018-07-16.csv
+    node server/scripts/csv/update_candidates.js
 
 For production (probably) run as:
 
