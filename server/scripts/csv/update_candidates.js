@@ -9,7 +9,7 @@ var fs = require('fs')
 const Bookshelf = require('../../bookshelf')
 const Candidate = require('../../models/candidate')
 
-var inputFile = 'data/2018-data-from-volunteers-2018-08-09.csv'
+var inputFile = 'data/2018-data-from-volunteers-2018-09-20.csv'
 // var inputFile = 'short.csv'
 
 const columnDefinitions = {
@@ -108,6 +108,10 @@ const columnDefinitions = {
     columnNumber: 18,
     dbColumnName: 'staradvertiser_url',
   },
+  inGeneralElection: {
+    name: 'in_general_election',
+    columnNumber: 19,
+  },
 }
 
 const columnDefinitionsByLine = Object.values(columnDefinitions).reduce((result, definition) => {
@@ -132,15 +136,22 @@ fs.createReadStream(inputFile).pipe(parser)
 
 // Print out each candidate
 function handleCsvLine(line) {
+  // console.log('line', line)
+  const inGeneral = line[columnDefinitions['inGeneralElection'].columnNumber]
   const candidateName = readColumn(columnDefinitions.candidateName, line)
   if (candidateName === 'Candidate Name') return new Promise(resolve => resolve())
+  // console.log(candidateName, "inGeneral", inGeneral)
 
   return Candidate
     .forge({candidate_name: candidateName})
     .fetch()
     .then(foundCandidate => {
       // Compare the attributes in the database
-      if (foundCandidate) {
+      if (inGeneral === 'N') {
+        // console.log('Deleting!')
+        return deleteCandidate(foundCandidate)
+      } else if (foundCandidate) {
+        // console.log('Comparing!')
         return compareAttributes(foundCandidate, line)
       } else {
         console.log(`Unable to find information for ${candidateName}`)
@@ -151,6 +162,16 @@ function handleCsvLine(line) {
 
 function readColumn(columnDefinition, line) {
   return line[columnDefinition.columnNumber]
+}
+
+function deleteCandidate(candidate) {
+  if (candidate) {
+    console.log("Actually deleting")
+    return candidate.destroy()
+  } else {
+    console.log("Already deleted")
+    return new Promise(resolve => resolve())
+  }
 }
 
 function insertNewCandidate(line) {
@@ -166,7 +187,7 @@ function insertNewCandidate(line) {
 
   console.log('Candidate attributes', attributes)
   var answer = readline.question(`\nAdd new candidate ${candidateName}? `)
-  if (answer == 'y') {
+  if (answer === 'y') {
     console.log("adding!")
     return new Candidate(attributes).save(null, {method: 'insert'})
   } else {
@@ -187,7 +208,7 @@ async function compareAttributes(candidate, line) {
     if (csvAttr === '') return null
 
     const definition = columnDefinitionsByLine[i]
-    if (definition.dbColumnName === false) return null
+    if (!definition.dbColumnName) return null
     const dbAttr = candidate.attributes[definition.dbColumnName]
     if (csvAttr === dbAttr) return null
 
