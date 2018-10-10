@@ -13,12 +13,14 @@
         "OBJECTID": 100,
         "Contest_Name": "Constitutional Convention",
         "contest_id": "HI1",
+        "description": "Shall there be a convention to propose a revision of or amendments to the Constitution?",
         "additionalLinks": []
       },
       {
         "OBJECTID": 101,
         "Contest_Name": "Relating to Surcharge on Residential Investment Properties to Fund Public Education Amendment",
         "contest_id": "HI2",
+        "description": "Shall the legislature be authorized to establish, as provided by law, a surcharge on investment real property to be used to support public education?",
         "additionalLinks": [
           {
             "name": "Legislation",
@@ -50,12 +52,14 @@
       {
         "OBJECTID": 200,
         "Contest_Name": "Public Notice and Voting Requirements for the Salary Commission",
-        "contest_id": "Haw1"
+        "contest_id": "Haw1",
+        "description": "Shall Article XIII of the County Charter be amended to require the Salary Commission to publish notification in two daily newspapers in the County, hold at least one public hearing, and provide a detailed report of its findings and conclusions for public inspection, all at least thirty (30) days prior to adopting any increase or decrease of a County elected official or appointed officer’s salary, and to further require that the Salary Commission approve by a two-thirds vote of its entire membership any salary increase or decrease greater than ten percent?"
       },
       {
         "OBJECTID": 201,
         "Contest_Name": "Fiscal Impact Statements for Amendments to the Hawai’i County Charter",
-        "contest_id": "Haw2"
+        "contest_id": "Haw2",
+        "description": "Shall Article XV of the County Charter be amended to require that any proposed amendment to the County Charter be accompanied by a Fiscal Impact Statement that describes the immediate and potential future effects that proposed amendment would have on County revenues, expenditures, taxes, and fiscal liabilities, and that the Fiscal Impact Statements be provided to voters no less than sixty (60) calendar days prior to the election where the proposed change is to be voted on by posting on the County website and by being made available for inclusion in any voter information pamphlet on County ballot propositions?"
       }
     ]
   },
@@ -73,7 +77,8 @@
       {
         "OBJECTID": 300,
         "Contest_Name": "Relating to Rapid Transportation",
-        "contest_id": "Hon1"
+        "contest_id": "Hon1",
+        "description": ""
       }
     ]
   },
@@ -91,17 +96,20 @@
       {
         "OBJECTID": 400,
         "Contest_Name": "Claims",
-        "contest_id": "Mau1"
+        "contest_id": "Mau1",
+        "description": "Shall Section 13-6 of the Charter be amended, effective January 2, 2019, to require that claims be filed with the Corporation Counsel instead of the County Clerk?"
       },
       {
         "OBJECTID": 401,
         "Contest_Name": "Penalties",
-        "contest_id": "Mau2"
+        "contest_id": "Mau2",
+        "description": "Shall the Charter be amended, effective January 2, 2019, to increase the penalty for the operation of a transient accommodation without a necessary permit from the current $1,000 amount to a civil fine of up to $20,000 plus $10,000 per day for each day the unlawful operation persists, unless a higher fine is authorized by State law, and to clarify that the current limit of a $1,000 fine for the violation of an ordinance is a limit of $1,000 per day the violation persists?"
       },
       {
         "OBJECTID": 402,
         "Contest_Name": "Open Space Fund",
-        "contest_id": "Mau3"
+        "contest_id": "Mau3",
+        "description": "Shall the Charter be amended, effective January 2, 2019, to expand the uses of the Open Space, Natural Resources, Cultural Resources, and Scenic Views Preservation Fund to authorize the fund to be used to perform safety and security improvements on lands acquired through the fund?"
       }
     ]
   },
@@ -119,32 +127,38 @@
       {
         "OBJECTID": 500,
         "Contest_Name": "Relating to the Public Defender",
-        "contest_id": "Kau1"
+        "contest_id": "Kau1",
+        "description": "Shall the charter be amended by repealing Article IX, Public Defender, as this function is already provided by the State?"
       },
       {
         "OBJECTID": 501,
         "Contest_Name": "Relating to the Electric Power Authority",
-        "contest_id": "Kau2"
+        "contest_id": "Kau2",
+        "description": "Shall the charter be amended by repealing Article XXX, which empowers the Council to create an electric power authority by ordinance?"
       },
       {
         "OBJECTID": 502,
         "Contest_Name": "Relating to the Zoning Board of Appeals",
-        "contest_id": "Kau3"
+        "contest_id": "Kau3",
+        "description": "Shall Article XIV, Planning Department, Sections 14.01, 14.03, 14.12, 14.13, and 14.14 be amended by removing all references to the zoning board of appeals?"
       },
       {
         "OBJECTID": 503,
         "Contest_Name": "Relating to the Public Access, Open Space, Natural Resources Preservation Fund",
-        "contest_id": "Kau4"
+        "contest_id": "Kau4",
+        "description": "Shall Article XIX, Financial Procedures, Section 19.15(C) be amended to permit the Public Access, Open Space, Natural Resources Preservation Fund to include improvements?"
       },
       {
         "OBJECTID": 504,
         "Contest_Name": "Relating to the Salary Commission",
-        "contest_id": "Kau5"
+        "contest_id": "Kau5",
+        "description": "Shall Article XXIX, Salary Commission, Sections 29.01 and 29.03 be amended to give the salary commission authority to establish the maximum salaries of all elected and appointed officials, and to add the director of human resources and the director of finance as ex-officio, non-voting members of the commission?"
       },
       {
         "OBJECTID": 505,
         "Contest_Name": "Relating to term limits for the office of Councilmember",
-        "contest_id": "Kau6"
+        "contest_id": "Kau6",
+        "description": "Shall the term limit of office for Councilmembers be removed?"
       }
     ]
   }

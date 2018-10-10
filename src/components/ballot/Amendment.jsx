@@ -25,12 +25,12 @@ export default class Amendment extends React.Component {
   _renderAdditionalAmmendmentInfo () {
     const { amendmentGroup } = this.props
     switch (amendmentGroup.name) {
-    case 'HONOLULU CHARTER AMEND':
-      return (
-        <span>
-          &nbsp;You may also view the official <a href={HONOLULU_CHARTER_AMMENDMENTS_PDF} target="_blank">2016 Honolulu Charter Amendments Brochure</a>
-        </span>
-      )
+    // case 'HONOLULU CHARTER AMEND':
+    //   return (
+    //     <span>
+    //       &nbsp;You may also view the official <a href={HONOLULU_CHARTER_AMMENDMENTS_PDF} target="_blank">2016 Honolulu Charter Amendments Brochure</a>
+    //     </span>
+    //   )
     default:
       return null
     }
@@ -90,6 +90,7 @@ export default class Amendment extends React.Component {
     // TODO: Surface this somehow
     // const fullTextLink = amendmentFullTextLink(amendmentGroup.name, amendmentNumber)
     const descriptionLink = amendmentDescriptionLink(amendmentGroup.name, amendmentNumber)
+    const { description } = amendment
 
     return (
       <div key={amendment.contest_id} className={styles['amendment-name']}>
@@ -98,9 +99,9 @@ export default class Amendment extends React.Component {
           target="_blank"
         >
           <div className={styles['relating-to']}>Relating to</div>
-          {amendmentGroup.name === 'HONOLULU CHARTER AMEND' ? `${amendmentNumber}. ` : null}
           {this._renderSingleAmendmentName(amendment.Contest_Name)}
         </a>
+        <div className={styles['amendment-description']}>{description}</div>
       </div>
     )
   }
