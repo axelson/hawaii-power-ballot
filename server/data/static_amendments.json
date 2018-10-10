@@ -2,16 +2,33 @@
   {
     "id": 1,
     "name": "CON AMEND",
+    "additionalLinks": [
+      {
+        "name": "PBS Insights",
+        "url": "https://www.pbshawaii.org/insights-on-pbs-hawaii-constitutional-convention-taxing-investment-property-for-education/"
+      }
+    ],
     "contests": [
       {
         "OBJECTID": 100,
         "Contest_Name": "Constitutional Convention",
-        "contest_id": "HI1"
+        "contest_id": "HI1",
+        "additionalLinks": []
       },
       {
         "OBJECTID": 101,
-        "Contest_Name": "Relating to Surcharge on Residential Investment Properties to Fund Public Education Amendment\tTaxes\tAllow legislature to enact surcharge on residential investment properties",
-        "contest_id": "HI2"
+        "Contest_Name": "Relating to Surcharge on Residential Investment Properties to Fund Public Education Amendment",
+        "contest_id": "HI2",
+        "additionalLinks": [
+          {
+            "name": "Legislation",
+            "url": "https://www.capitol.hawaii.gov/measure_indiv.aspx?billtype=SB&billnumber=2922&year=2018"
+          },
+          {
+            "name": "KITV",
+            "url": "http://www.kitv.com/story/39233963/general-election-bill-help-schooling-or-affect-all-property-tax-payers"
+          }
+        ]
       }
     ]
   },
@@ -19,6 +36,16 @@
     "id": 2,
     "name": "HAWAII CHARTER AMEND",
     "county": "HAWAII",
+    "additionalLinks": [
+      {
+        "name": "Big Island Now",
+        "url": "http://bigislandnow.com/2018/09/27/county-council-proposes-amendments-to-county-charter/"
+      },
+      {
+        "name": "Hawaii Tribune Herald",
+        "url": "https://www.hawaiitribune-herald.com/2018/08/26/hawaii-news/county-charter-amendments-promote-transparency/"
+      }
+    ],
     "contests": [
       {
         "OBJECTID": 200,
@@ -36,6 +63,12 @@
     "id": 3,
     "name": "HONOLULU CHARTER AMEND",
     "county": "OAHU",
+    "additionalLinks": [
+      {
+        "name": "Star Advertiser",
+        "url": "http://www.staradvertiser.com/2018/10/02/hawaii-news/oahu-voters-asked-to-solve-hart-board-members-dilemma/?ta_paidstoryta_feedname=hawaiinews"
+      }
+    ],
     "contests": [
       {
         "OBJECTID": 300,
@@ -48,6 +81,12 @@
     "id": 4,
     "name": "MAUI CHARTER AMEND",
     "county": "MAUI",
+    "additionalLinks": [
+      {
+        "name": "Maui News",
+        "url": "http://www.mauinews.com/news/local-news/2018/07/three-charter-amendments-make-it-to-nov-6-ballot/"
+      }
+    ],
     "contests": [
       {
         "OBJECTID": 400,
@@ -70,6 +109,12 @@
     "id": 5,
     "name": "KAUAI CHARTER AMEND",
     "county": "KAUAI",
+    "additionalLinks": [
+      {
+        "name": "Kauai Charter Review Committee",
+        "url": "https://www.kauai.gov/Charter"
+      }
+    ],
     "contests": [
       {
         "OBJECTID": 500,

@@ -38,29 +38,49 @@ export default class Amendment extends React.Component {
 
   _renderAdditionalAmendmentSection () {
     const { amendmentGroup } = this.props
-    switch (amendmentGroup.name) {
-    case "CON AMEND":
+
+    if (amendmentGroup.additionalLinks && amendmentGroup.additionalLinks.length > 0) {
+      const { additionalLinks } = amendmentGroup
+
       return (
         <div className={styles['amendment-additional-info-section']}>
           Additional Information:
           <ul className={styles['additional-information-links']}>
-            <li><a href="http://www.lwv-hawaii.com/prosandcons-hon2.pdf">League of Women Voters of Hawaii Pros and Cons</a></li>
+            {additionalLinks.map((additionalLink, i) =>
+              (
+                <li key={i}><a href={additionalLink.url}>{additionalLink.name}</a></li>
+              )
+            )}
           </ul>
         </div>
       )
-    case 'HONOLULU CHARTER AMEND':
-      return (
-        <div className={styles['amendment-additional-info-section']}>
-          Additional Information:
-          <ul className={styles['additional-information-links']}>
-            <li><a href="http://www.lwv-hawaii.com/pro-con-2016.htm" target="_blank">League of Women Voters of Hawaii — Pros and Cons</a></li>
-            <li><a href="https://whatnataliethinks.wordpress.com/2016/10/22/20-charter-amendments-recommendations-and-further-research/" target="_blank">Natlie Iwasa — Recommendations and Further Research</a></li>
-          </ul>
-        </div>
-      )
-    default:
+    }
+    else {
       return null
     }
+    // switch (amendmentGroup.name) {
+    // case "CON AMEND":
+    //   return (
+    //     <div className={styles['amendment-additional-info-section']}>
+    //       Additional Information:
+    //       <ul className={styles['additional-information-links']}>
+    //         <li><a href="http://www.lwv-hawaii.com/prosandcons-hon2.pdf">League of Women Voters of Hawaii Pros and Cons</a></li>
+    //       </ul>
+    //     </div>
+    //   )
+    // case 'HONOLULU CHARTER AMEND':
+    //   return (
+    //     <div className={styles['amendment-additional-info-section']}>
+    //       Additional Information:
+    //       <ul className={styles['additional-information-links']}>
+    //         <li><a href="http://www.lwv-hawaii.com/pro-con-2016.htm" target="_blank">League of Women Voters of Hawaii — Pros and Cons</a></li>
+    //         <li><a href="https://whatnataliethinks.wordpress.com/2016/10/22/20-charter-amendments-recommendations-and-further-research/" target="_blank">Natlie Iwasa — Recommendations and Further Research</a></li>
+    //       </ul>
+    //     </div>
+    //   )
+    // default:
+    //   return null
+    // }
   }
 
   _renderAmendment = (amendment, i) => {
