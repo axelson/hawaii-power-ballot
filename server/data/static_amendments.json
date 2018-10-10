@@ -14,5 +14,93 @@
         "contest_id": "HI2"
       }
     ]
+  },
+  {
+    "id": 2,
+    "name": "HAWAII CHARTER AMEND",
+    "county": "HAWAII",
+    "contests": [
+      {
+        "OBJECTID": 200,
+        "Contest_Name": "Public Notice and Voting Requirements for the Salary Commission",
+        "contest_id": "Haw1"
+      },
+      {
+        "OBJECTID": 201,
+        "Contest_Name": "Fiscal Impact Statements for Amendments to the Hawai’i County Charter",
+        "contest_id": "Haw2"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "HONOLULU CHARTER AMEND",
+    "county": "OAHU",
+    "contests": [
+      {
+        "OBJECTID": 300,
+        "Contest_Name": "Relating to Rapid Transportation",
+        "contest_id": "Hon1"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "MAUI CHARTER AMEND",
+    "county": "MAUI",
+    "contests": [
+      {
+        "OBJECTID": 400,
+        "Contest_Name": "Claims",
+        "contest_id": "Mau1"
+      },
+      {
+        "OBJECTID": 401,
+        "Contest_Name": "Penalties",
+        "contest_id": "Mau2"
+      },
+      {
+        "OBJECTID": 402,
+        "Contest_Name": "Open Space Fund",
+        "contest_id": "Mau3"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "KAUAI CHARTER AMEND",
+    "county": "KAUAI",
+    "contests": [
+      {
+        "OBJECTID": 500,
+        "Contest_Name": "Relating to the Public Defender",
+        "contest_id": "Kau1"
+      },
+      {
+        "OBJECTID": 501,
+        "Contest_Name": "Relating to the Electric Power Authority",
+        "contest_id": "Kau2"
+      },
+      {
+        "OBJECTID": 502,
+        "Contest_Name": "Relating to the Zoning Board of Appeals",
+        "contest_id": "Kau3"
+      },
+      {
+        "OBJECTID": 503,
+        "Contest_Name": "Relating to the Public Access, Open Space, Natural Resources Preservation Fund",
+        "contest_id": "Kau4"
+      },
+      {
+        "OBJECTID": 504,
+        "Contest_Name": "Relating to the Salary Commission",
+        "contest_id": "Kau5"
+      },
+      {
+        "OBJECTID": 505,
+        "Contest_Name": "Relating to term limits for the office of Councilmember",
+        "contest_id": "Kau6"
+      }
+    ]
   }
 ]

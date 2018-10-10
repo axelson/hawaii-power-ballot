@@ -7,8 +7,10 @@ const STATIC_AMENDMENTS = require('./../data/static_amendments.json')
 
 function getDistrictInfo(dp) {
   return getPrecinct(dp).then(results => {
+    let county = ''
     let pollingId = ''
     let contestsFromAllDistricts = results.map(result => {
+      county = result.attributes.County
       pollingId = result.attributes.DP
       return result.attributes.Contests.split('-')
     })
@@ -25,6 +27,7 @@ function getDistrictInfo(dp) {
     })
 
     return {
+      county: county,
       pollingId: pollingId,
       contestIds: allCandidateContests,
       amendmentIds: allAmendmentContestIds,
@@ -57,25 +60,28 @@ function getCandidatesMappedIntoContests(contestIds) {
   })
 }
 
-function getAmendmentsArray() {
-  return Promise.resolve(STATIC_AMENDMENTS)
+function getAmendmentsArray(county) {
+  const filteredAmendments = STATIC_AMENDMENTS.filter(amendmentGroup => {
+    return amendmentGroup.county === undefined || amendmentGroup.county === county
+  })
+
+  return Promise.resolve(filteredAmendments)
 }
 
 function getBallot(districtId) {
   return getDistrictInfo(districtId).then(districtInfo => {
-    const {pollingId, contestIds} = districtInfo
+    const {county, pollingId, contestIds} = districtInfo
 
     const pollingPlacePr = getPollingPlace(pollingId)
     const contestsWithCandidatesPr = getCandidatesMappedIntoContests(contestIds)
-    const amendmentsPr = getAmendmentsArray()
+    const amendmentsPr = getAmendmentsArray(county)
 
     return Promise.all([pollingPlacePr, contestsWithCandidatesPr, amendmentsPr]).then(results => {
       const ballot = {
+        county: county,
         pollingPlace: results[0],
         contests: results[1],
-        // Disabled for the primary
-        // amendments: results[2],
-        amendments: [],
+        amendments: results[2],
       }
 
       return ballot
@@ -90,9 +96,7 @@ function getStatewideBallot() {
     return contestsWithCandidatesPr.then(contests => {
       const ballot = {
         contests,
-        // Disabled for the primary
-        // amendments: amendments,
-        amendments: []
+        amendments: amendments,
       }
       return ballot
     })
