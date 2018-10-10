@@ -158,6 +158,12 @@
         "OBJECTID": 505,
         "Contest_Name": "Relating to term limits for the office of Councilmember",
         "contest_id": "Kau6",
+        "additionalLinks": [
+          {
+            "name": "Legislation",
+            "url": "http://www.kauaigovonline.org/weblink/0/doc/1916962/Electronic.aspx"
+          }
+        ],
         "description": "Shall the term limit of office for Councilmembers be removed?"
       }
     ]
