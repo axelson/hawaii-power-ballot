@@ -21,20 +21,6 @@ export default class Amendment extends React.Component {
     return nameWithoutPrefix.trim().replace(/^Relating to/,'')
   }
 
-  _renderAdditionalAmmendmentInfo () {
-    const { amendmentGroup } = this.props
-    switch (amendmentGroup.name) {
-    // case 'HONOLULU CHARTER AMEND':
-    //   return (
-    //     <span>
-    //       &nbsp;You may also view the official <a href={HONOLULU_CHARTER_AMMENDMENTS_PDF} target="_blank">2016 Honolulu Charter Amendments Brochure</a>
-    //     </span>
-    //   )
-    default:
-      return null
-    }
-  }
-
   _renderAdditionalAmendmentSection () {
     const { amendmentGroup } = this.props
 
@@ -57,29 +43,6 @@ export default class Amendment extends React.Component {
     else {
       return null
     }
-    // switch (amendmentGroup.name) {
-    // case "CON AMEND":
-    //   return (
-    //     <div className={styles['amendment-additional-info-section']}>
-    //       Additional Information:
-    //       <ul className={styles['additional-information-links']}>
-    //         <li><a href="http://www.lwv-hawaii.com/prosandcons-hon2.pdf">League of Women Voters of Hawaii Pros and Cons</a></li>
-    //       </ul>
-    //     </div>
-    //   )
-    // case 'HONOLULU CHARTER AMEND':
-    //   return (
-    //     <div className={styles['amendment-additional-info-section']}>
-    //       Additional Information:
-    //       <ul className={styles['additional-information-links']}>
-    //         <li><a href="http://www.lwv-hawaii.com/pro-con-2016.htm" target="_blank">League of Women Voters of Hawaii — Pros and Cons</a></li>
-    //         <li><a href="https://whatnataliethinks.wordpress.com/2016/10/22/20-charter-amendments-recommendations-and-further-research/" target="_blank">Natlie Iwasa — Recommendations and Further Research</a></li>
-    //       </ul>
-    //     </div>
-    //   )
-    // default:
-    //   return null
-    // }
   }
 
   _renderHonoluluAmendment = () => {
@@ -163,7 +126,6 @@ export default class Amendment extends React.Component {
         </div>
         <div className={styles['amendment-group-description']}>
           The following lists the related topics for the proposed {this._renderAmendmentGroupName()} amendments. You can vote YES or NO on each proposed amendment.
-          {this._renderAdditionalAmmendmentInfo()}
         </div>
         {this._renderAdditionalAmendmentSection()}
         <div className={styles['amendment-list']}>
