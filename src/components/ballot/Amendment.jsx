@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {
-  HONOLULU_CHARTER_AMMENDMENTS_PDF,
   // amendmentFullTextLink,
   amendmentDescriptionLink,
   getAmendmentGroupTitle,
@@ -83,6 +82,34 @@ export default class Amendment extends React.Component {
     // }
   }
 
+  _renderHonoluluAmendment = () => {
+    return (
+      <div>
+      Shall the Revised Charter of the City and County of Honolulu 1973 (2017 Edition) relating to the board of the Honolulu Authority for Rapid Transportation (the “Board”) be amended:
+        <ol>
+          <li>To increase the number of Board members from ten to a maximum of fifteen;</li>
+          <li>To provide that the President of the Hawaii State Senate and the Speaker of the Hawaii State House of Representatives may each appoint up to two non-voting members, for terms to be determined by the appointing authority;</li>
+          <li>To provide that the City Council may appoint one additional voting member;</li>
+          <li>To specify that six members shall constitute a quorum; and</li>
+          <li>To specify that the affirmative vote of a majority of all voting members of the Board shall be necessary to take any action, and such action shall be made at a meeting open to the public?</li>
+        </ol>
+      </div>
+    )
+  }
+
+  _renderDescription = (amendment) => {
+    const { contest_id, description } = amendment
+
+    if ("Hon1" === contest_id) {
+      return this._renderHonoluluAmendment()
+    }
+    else {
+      return (
+        <div>{description}</div>
+      )
+    }
+  }
+
   _renderAmendment = (amendment, i) => {
     const { amendmentGroup } = this.props
     const amendmentNumber = i + 1
@@ -90,7 +117,7 @@ export default class Amendment extends React.Component {
     // TODO: Surface this somehow
     // const fullTextLink = amendmentFullTextLink(amendmentGroup.name, amendmentNumber)
     const descriptionLink = amendmentDescriptionLink(amendmentGroup.name, amendmentNumber)
-    const { description, additionalLinks } = amendment
+    const { additionalLinks } = amendment
 
     return (
       <div key={amendment.contest_id} className={styles['amendment-name']}>
@@ -101,7 +128,7 @@ export default class Amendment extends React.Component {
           <div className={styles['relating-to']}>Relating to</div>
           {this._renderSingleAmendmentName(amendment.Contest_Name)}
         </a>
-        <div className={styles['amendment-description']}>{description}</div>
+        <div className={styles['amendment-description']}>{this._renderDescription(amendment)}</div>
         <div className={styles['amendment-description']}>{this._renderAmendmentLinks(additionalLinks)}</div>
       </div>
     )
