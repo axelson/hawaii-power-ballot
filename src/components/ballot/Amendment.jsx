@@ -90,7 +90,7 @@ export default class Amendment extends React.Component {
     // TODO: Surface this somehow
     // const fullTextLink = amendmentFullTextLink(amendmentGroup.name, amendmentNumber)
     const descriptionLink = amendmentDescriptionLink(amendmentGroup.name, amendmentNumber)
-    const { description } = amendment
+    const { description, additionalLinks } = amendment
 
     return (
       <div key={amendment.contest_id} className={styles['amendment-name']}>
@@ -102,8 +102,26 @@ export default class Amendment extends React.Component {
           {this._renderSingleAmendmentName(amendment.Contest_Name)}
         </a>
         <div className={styles['amendment-description']}>{description}</div>
+        <div className={styles['amendment-description']}>{this._renderAmendmentLinks(additionalLinks)}</div>
       </div>
     )
+  }
+
+  _renderAmendmentLinks = (additionalLinks) => {
+    if (additionalLinks && additionalLinks.length > 0) {
+      return (
+        <div>
+          {additionalLinks.map((additionalLink, i) =>
+            (
+              <div key={i}><a href={additionalLink.url}>{additionalLink.name}</a></div>
+            )
+          )}
+        </div>
+      )
+    }
+    else {
+      return null
+    }
   }
 
   render () {
