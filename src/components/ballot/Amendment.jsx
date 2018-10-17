@@ -29,7 +29,7 @@ export default class Amendment extends React.Component {
 
       return (
         <div className={styles['amendment-additional-info-section']}>
-          Additional Information:
+          Additional Information about all the amendments:
           <ul className={styles['additional-information-links']}>
             {additionalLinks.map((additionalLink, i) =>
               (
@@ -101,6 +101,8 @@ export default class Amendment extends React.Component {
     if (additionalLinks && additionalLinks.length > 0) {
       return (
         <div>
+          <br />
+          <div>Additional Information:</div>
           {additionalLinks.map((additionalLink, i) =>
             (
               <div key={i}><a href={additionalLink.url}>{additionalLink.name}</a></div>
