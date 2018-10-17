@@ -3,5 +3,6 @@ export function officialBallotPdfLink(pollingId) {
   const id = pollingId.replace('-', '')
 
   // return `https://olvr.hawaii.gov/VIP/ViewMyBallot.aspx?dp=${id}`
-  return `https://olvr.hawaii.gov/2018PrimaryFacsimileBallots/English/FAX001_${id}_1.pdf`
+  // return `https://olvr.hawaii.gov/2018PrimaryFacsimileBallots/English/FAX001_${id}_1.pdf`
+  return `https://olvr.hawaii.gov/2018GeneralFacsimileBallots/English/FAX001_${id}_1.pdf`
 }
