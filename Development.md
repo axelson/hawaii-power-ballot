@@ -60,9 +60,9 @@ In shell:
 
     node server/scripts/csv/update_candidates.js
 
-For production (probably) run as:
+For production run as:
 
-    heroku run node server/scripts/csv/update_candidates.js
+    heroku run 'node server/scripts/csv/update_candidates.js'
 
 When you import new data make sure that both the `contests` and the `contest_id` field is properly filled out!
 
