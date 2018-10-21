@@ -73,6 +73,16 @@ export default class Amendment extends React.Component {
     }
   }
 
+  _renderAdditionalInfo = (amendment) => {
+    if (amendment.additionalInfo) {
+      return <div className={styles['amendment-additional-info']}>
+               {amendment.additionalInfo}
+             </div>
+    } else {
+      return null
+    }
+  }
+
   _renderAmendment = (amendment, i) => {
     const { amendmentGroup } = this.props
     const amendmentNumber = i + 1
@@ -92,6 +102,7 @@ export default class Amendment extends React.Component {
           {this._renderSingleAmendmentName(amendment.Contest_Name)}
         </a>
         <div className={styles['amendment-description']}>{this._renderDescription(amendment)}</div>
+        {this._renderAdditionalInfo(amendment)}
         <div className={styles['amendment-description']}>{this._renderAmendmentLinks(additionalLinks)}</div>
       </div>
     )
