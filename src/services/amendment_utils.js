@@ -1,4 +1,4 @@
-export const HONOLULU_CHARTER_AMMENDMENTS_PDF = 'http://honoluluchartercommission.org/images/2016_Charter_Amendments_Brochure.pdf'
+export const HONOLULU_CHARTER_AMENDMENTS_PDF = 'http://honoluluchartercommission.org/images/2016_Charter_Amendments_Brochure.pdf'
 
 export function getAmendmentGroupTitle(amendmentGroupName) {
   switch (amendmentGroupName) {
@@ -18,15 +18,15 @@ export function getAmendmentGroupTitle(amendmentGroupName) {
   }
 }
 
-export function amendmentFullTextLink(ammendmentGroupName) {
-  switch (ammendmentGroupName) {
+export function amendmentFullTextLink(amendmentGroupName) {
+  switch (amendmentGroupName) {
   default:
     return 'https://elections.hawaii.gov/voters/constitutional-and-charter-amendment-questions/'
   }
 }
 
-export function amendmentDescriptionLink(ammendmentGroupName) {
-  switch (ammendmentGroupName) {
+export function amendmentDescriptionLink(amendmentGroupName) {
+  switch (amendmentGroupName) {
   default:
     return 'https://elections.hawaii.gov/voters/constitutional-and-charter-amendment-questions/'
   }
