@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import isEmpty from 'lodash/isEmpty'
 
 import BallotHeader from './BallotHeader'
 import Contest from './Contest'
@@ -23,7 +24,7 @@ export default class Ballot extends React.Component {
 
   render () {
     const { address, ballot, coordinates, precinct } = this.props
-    if (!ballot) return null
+    if (!ballot || isEmpty(ballot)) return null
     const { contests, amendments } = ballot
 
     sortContests(contests)

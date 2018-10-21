@@ -50,7 +50,9 @@ function getPrecincts() {
 
 function getPrecinct(dp) {
   // HI2018G_Precincts_HACC
-  const baseUrl = 'https://services2.arcgis.com/tuFQUQg1xd48W6M5/arcgis/rest/services/PowerBallotHI2018P/FeatureServer/0/query'
+  // const baseUrl = 'https://services2.arcgis.com/tuFQUQg1xd48W6M5/arcgis/rest/services/PowerBallotHI2018P/FeatureServer/0/query'
+  // const baseUrl = 'https://services.arcgis.com/HQ0xoN0EzDPBOEci/arcgis/rest/services/Polling_Places_Honolulu/FeatureServer/5/query'
+  const baseUrl = 'https://services.arcgis.com/HQ0xoN0EzDPBOEci/ArcGIS/rest/services/PowerBallotHI2018G/FeatureServer/0/query'
 
   const result = SuperAgent.get(baseUrl)
     .query({
@@ -107,7 +109,9 @@ function geocodeAddress (address) {
 
 // Use the precinct service to lookup an address based on "esri" coordinates
 function lookupPrecinct (coordinates, spatialReference) {
-  const baseUrl =  'https://services2.arcgis.com/tuFQUQg1xd48W6M5/ArcGIS/rest/services/HACC_HI2016G_Candidates/FeatureServer/1/query'
+  // const baseUrl =  'https://services2.arcgis.com/tuFQUQg1xd48W6M5/ArcGIS/rest/services/HACC_HI2016G_Candidates/FeatureServer/1/query'
+
+  const baseUrl = 'https://services.arcgis.com/HQ0xoN0EzDPBOEci/arcgis/rest/services/Polling_Places_Honolulu/FeatureServer/5/query'
 
   const result = SuperAgent.get(baseUrl)
     .query({
