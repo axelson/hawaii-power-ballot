@@ -68,6 +68,9 @@ export default class FindYourBallot extends React.Component {
     return (
       <div className={styles['container']}>
         <div className='row'>
+          <div className={styles['error-message']}>
+            We're currently experiencing technical difficulties. Please check back soon.
+          </div>
           <div className={styles['feature']}>
             Find <i>Your</i>&nbsp; “Power Ballot”
           </div>
